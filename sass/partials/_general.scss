@@ -1,0 +1,64 @@
+/********************************************
+/********************************************
+
+	general html elements and helpers
+
+/********************************************
+/********************************************/
+
+a {
+	text-decoration: none;
+	color: $text-color;
+	
+	p & {
+		text-decoration: underline
+	}
+
+	&:hover  { 
+		color: $main-color; 
+	}
+}
+
+strong { font-weight: 800; }
+em { font-style: italic; }
+
+q {
+	&:before { content: "“"; }
+	&:after { content: "”"; }
+}
+
+::-moz-selection {
+	background: $main-color;
+	color: #fff;
+}
+
+::selection {
+	background: $main-color;
+	color: #fff;
+}
+
+
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+.outline { display: none }
+
+
+/********************************************
+/********************************************
+
+	ui elements
+
+	alerts, badges, tooltips, buttons
+
+/********************************************
+/********************************************/
+
+
+

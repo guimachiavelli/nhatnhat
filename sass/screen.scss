@@ -1,0 +1,170 @@
+@import 'compass';
+@import 'susy';
+
+@import 'partials/wp-header';
+@import 'partials/reset';
+@import 'partials/grid';
+@import 'partials/colors';
+@import 'partials/mixins';
+@import 'partials/general';
+
+@include establish-baseline;
+
+html {
+	//background: white;
+}
+
+body {
+	@include adjust-leading-to(2);
+//	@include susy-grid-background;
+	//@include debug-vertical-alignment;
+	font-family: $text-font;
+	background: $background-color;
+	color: $text-color;
+	padding-top: rhythm(3);
+}
+
+h1, h2 {
+	font-family: $display-font;
+}
+
+#top-bar {
+	position: absolute;
+	top: 0;
+	background: #fff;
+	width: 100%;
+	
+	ul {
+		@include clearfix;
+		@include container;
+	}
+
+	.nav-link {
+		float: left;
+		@include adjust-font-size-to(18px);
+		font-family: $display-font;
+		@include span-columns(4);
+		@include nth-omega(last);
+		text-align: center;
+	}
+}
+
+#intro {
+	@include container;
+	margin-bottom: rhythm(5);
+	
+	
+	
+	.name {
+		position: relative;
+		@include pie-clearfix;
+	}
+	
+	h1.name {
+		@include adjust-font-size-to(65px);
+	}
+
+	b {
+		float: left;
+	}
+
+	.nhat, .vu, .dang {
+		@include span-columns(5);
+		@include nth-omega(last);
+		text-align: center;
+	}
+
+	.name {
+		.nhat {
+			margin-left: -20px;
+		}
+
+		.dang {
+			margin-right: -20px
+		}
+	}
+
+	.dash {
+		position: absolute;
+		left: 28%;
+	}
+
+	.pronunciation {
+		@include adjust-font-size-to(18px);
+
+	}
+
+}
+
+
+.home {
+	
+	#home-work {
+		counter-reset: section;
+	}
+
+	.post {
+		background-color: #fff;
+		@include box-shadow(2px 2px 10px 10px rgba(#000, 0.1));
+		height: 86px;
+		position: relative;
+		clear: both;
+		margin-bottom: 39px;
+		padding-top: 14px;
+
+		article {
+			border-left: 2px solid $main-color;
+			border-right: 2px solid $main-color;
+			margin: 0 2.5%;
+			padding: 0 2.5%;
+			height: 71px
+		}
+
+		.thumb {
+			position: absolute;
+			top: 0;
+			right: 5%;
+			z-index: 1;
+			width: 40%;
+			overflow: hidden;
+		}
+
+		.title {
+			@include adjust-font-size-to(36px, 2.5);
+			width: 50%;
+			max-height: rhythm(2.5);
+		}
+
+		.post-number {
+			float: left;
+			width: 40px;
+			height: 71px;
+		}
+
+		&:nth-child(2n) {
+			a:hover {
+				color: $second-color;
+			}
+			article {
+				border-left-color: $second-color; 
+				border-right-color: $second-color; 
+			}
+		}
+		&:nth-child(3n) {
+			a:hover {
+				color: $third-color;
+			}		
+			article {
+				border-left-color: $third-color; 
+				border-right-color: $third-color; 
+			}
+		}
+	}
+
+	
+
+}
+
+@import 'partials/js';
+@import 'partials/ie8';
+//@import 'partials/small-screens';
