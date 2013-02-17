@@ -1,11 +1,33 @@
 .js {
 
-
+	.hidden-content {
+		display: none;
+	}
 
 }
 
 
 .no-js {
 	
+	.post.single {
+
+		.viewing figcaption {
+			display: block;
+			margin-top: 0;
+			float: right;
+			height: auto;
+			padding-bottom: rhythm(2);
+		}
+
+
+
+		.media-nav { 
+			height: auto;
+			.inactive { display: block }
+			img { width: 100% }
+		}
+		
+		.fullscreen-image { display: none }
+	}
 
 }

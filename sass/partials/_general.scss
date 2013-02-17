@@ -27,6 +27,12 @@ q {
 	&:after { content: "”"; }
 }
 
+p {
+	margin-bottom: rhythm();
+}
+
+
+
 ::-moz-selection {
 	background: $main-color;
 	color: #fff;

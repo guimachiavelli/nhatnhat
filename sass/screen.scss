@@ -58,6 +58,7 @@ h1, h2 {
 	.name {
 		position: relative;
 		@include pie-clearfix;
+	text-rendering: optimizeLegibility;
 	}
 	
 	h1.name {
@@ -91,75 +92,249 @@ h1, h2 {
 
 	.pronunciation {
 		@include adjust-font-size-to(18px);
-
 	}
 
 }
 
-
-.home {
+.post {
+	position: relative;
+	clear: both;
+	margin-bottom: 39px;
 	
-	#home-work {
-		counter-reset: section;
+	header {
+		@include make-square;
+		width: 100%;
+		height: 71px;
 	}
 
-	.post {
-		background-color: #fff;
-		@include box-shadow(2px 2px 10px 10px rgba(#000, 0.1));
-		height: 86px;
-		position: relative;
-		clear: both;
-		margin-bottom: 39px;
-		padding-top: 14px;
+	hgroup {
+		border-left: 2px solid $main-color;
+		border-right: 2px solid $main-color;
+		width: 95%;
+		margin: 0 2.5%;
+	}
 
-		article {
-			border-left: 2px solid $main-color;
-			border-right: 2px solid $main-color;
-			margin: 0 2.5%;
-			padding: 0 2.5%;
-			height: 71px
+
+	.post-number {
+		float: left;
+		width: 40px;
+		height: 71px;
+	}
+
+	.content {
+		width: 40%;
+		margin: rhythm(3) 0 0 9%;
+		@include adjust-font-size-to(12px, 1.25);
+	}
+	
+	.thumb, .media {
+		width: 40%;
+		overflow: hidden;
+		text-align: right;
+		float: right;
+		margin: -101px 5% 0 0;
+	}
+
+	.thumb {
+		height: 140px;
+
+		img {
+			margin-top: -25%;
+			width: 100%;
+		}
+	}
+
+	.media {
+		padding-bottom: 2em;
+	}
+
+	.viewing {
+		line-height: 0;
+
+		figcaption {
+			position: relative;
+			z-index: 5;
+			float: right;
+			display: none;
+			margin-top: rhythm(5)*-1;
+			background: #fff;
+			text-align: center;
+			padding: rhythm() 5%;
+			width: 90%;
+			height: rhythm(3);
 		}
 
-		.thumb {
+		img {
+			width: 100%;
+			line-height: 0;
+		}
+
+		&:hover {
+			figcaption {
+				display: block;
+			}
+		}
+	}
+
+	.media-nav {
+		background: #fff;
+		padding: rhythm(.5) 5%;
+		width: 90%;
+		height: rhythm(2.5);
+		float: right;
+		position: relative;
+		font-family: $display-font;
+
+		li {
+			display: inline-block;
+			width: 1em;
+			height: 1em;
+		}
+		
+		.fullscreen-image {
 			position: absolute;
-			top: 0;
-			right: 5%;
-			z-index: 1;
-			width: 40%;
-			overflow: hidden;
+			right: 4%;
+			top: 8px;
+			width: 50px;
+			text-align: right;
+		}
+
+	}
+
+	.media-module {
+		clear: left;
+
+		h1 {
+			position: absolute;
+			width: 60px;
+			line-height: 1;
+			text-align: center;
+			left: 0;
+			top: rhythm(1);
+			cursor: pointer;
+
+			&:hover {
+				color: $main-color;
+			}
+		}
+
+		ol {
+			width: 100%;
+			margin: 0 auto;
+			text-align: center;
+			@include clearfix;
+
+			&.inactive {
+				display: none;
+			}
+		}
+
+		&.videos {
+			h1 {
+				top: rhythm(2);
+			}
+		}
+
+	}
+
+	&:nth-child(2n) {
+		a:hover {
+			color: $second-color;
+		}
+		hgroup {
+			border-color: $second-color; 
+		}
+	}
+	&:nth-child(3n) {
+		a:hover {
+			color: $third-color;
+		}		
+		hgroup {
+			border-color: $third-color; 
+		}
+	}
+
+	&.single {
+		height: auto;
+		margin-bottom: 15px;
+	}
+}
+
+
+.main-module {
+	@include make-square;
+	@include clearfix;
+	padding: rhythm() 2.5%;
+
+
+	header {
+		border-left: 2px solid $main-color;
+		border-right: 2px solid $main-color;
+		width: 100%;
+		@include clearfix;
+
+	}
+
+	.title {
+		text-align: center;
+	}
+
+	.content {
+		width: 35%;
+		@include adjust-font-size-to(12px, 1.15);
+		padding: 0 10%;
+		margin-top: rhythm(3);
+	}
+
+
+	&#follow {
+		header {
+			height: 81px;
 		}
 
 		.title {
-			@include adjust-font-size-to(36px, 2.5);
-			width: 50%;
-			max-height: rhythm(2.5);
+			width: 95%;
 		}
 
-		.post-number {
-			float: left;
-			width: 40px;
-			height: 71px;
+		.content {
+			margin-top: -81px;
+			width: 80%;
+			text-align: center;
+
+			a {
+				display: block;
+			}
 		}
 
-		&:nth-child(2n) {
-			a:hover {
-				color: $second-color;
-			}
-			article {
-				border-left-color: $second-color; 
-				border-right-color: $second-color; 
-			}
-		}
-		&:nth-child(3n) {
-			a:hover {
-				color: $third-color;
-			}		
-			article {
-				border-left-color: $third-color; 
-				border-right-color: $third-color; 
-			}
+		li {
+			margin-bottom: rhythm(2);
 		}
 	}
+}
+
+#nhat-photo {
+	float: right;
+	margin-top: -101px;
+	margin-right: 2.5%;
+
+}
+
+.title {
+	@include adjust-font-size-to(36px, 2.5);
+	width: 50%;
+	padding: 0 2.5%;
+	overflow: hidden;
+	text-rendering: optimizeLegibility;
+}
+
+
+
+.content {
+	text-rendering: optimizeLegibility;
+}
+
+.home {
+	
 
 	
 
