@@ -3,13 +3,18 @@
 	.hidden-content {
 		display: none;
 	}
-
+	
+	.post {
+		.title {
+			cursor: pointer;
+		}
+	}
 }
 
 
 .no-js {
 	
-	.post.single {
+	.post.open {
 
 		.viewing figcaption {
 			display: block;

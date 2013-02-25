@@ -58,7 +58,7 @@ h1, h2 {
 	.name {
 		position: relative;
 		@include pie-clearfix;
-	text-rendering: optimizeLegibility;
+		text-rendering: optimizeLegibility;
 	}
 	
 	h1.name {
@@ -97,14 +97,20 @@ h1, h2 {
 }
 
 .post {
-	position: relative;
 	clear: both;
-	margin-bottom: 39px;
+	overflow: hidden;
+	margin-bottom: 0;
+	max-height: 140px;
+	@include transition-property(max-height);
+	@include transition-duration(2s);
+
 	
 	header {
 		@include make-square;
 		width: 100%;
 		height: 71px;
+		position: relative;
+		z-index: 1;
 	}
 
 	hgroup {
@@ -133,6 +139,8 @@ h1, h2 {
 		text-align: right;
 		float: right;
 		margin: -101px 5% 0 0;
+		position: relative;
+		z-index: 1;
 	}
 
 	.thumb {
@@ -238,16 +246,8 @@ h1, h2 {
 
 	}
 
-	&:nth-child(2n) {
-		a:hover {
-			color: $second-color;
-		}
-		hgroup {
-			border-color: $second-color; 
-		}
-	}
 	&:nth-child(3n) {
-		a:hover {
+		.title:hover {
 			color: $third-color;
 		}		
 		hgroup {
@@ -255,8 +255,26 @@ h1, h2 {
 		}
 	}
 
-	&.single {
-		height: auto;
+	&:nth-child(2n) {
+		.title:hover {
+			color: $second-color;
+		}
+		hgroup {
+			border-color: $second-color; 
+		}
+	}
+
+	& {
+		.title:hover {
+			color: $main-color;
+		}		
+		hgroup {
+			border-color: $main-color; 
+		}
+	}
+
+	&.open {
+		max-height: 900px;
 		margin-bottom: 15px;
 	}
 }

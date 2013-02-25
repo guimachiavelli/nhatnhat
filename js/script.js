@@ -17,15 +17,16 @@ $(document).ready(function () {
 		var target;
 
 		target = $(this).children('.hidden-content');
-
 		test = target[0].innerHTML;
-
 		$('.viewing').html(test);
 
 		return false;
-		
-		
 	});
-
+	
+	
+	$('.post .title').click(function() {
+		$(this).parents('.post').toggleClass('open');
+		return false;
+	});
 
 });

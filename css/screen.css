@@ -305,9 +305,18 @@ h1, h2 {
 }
 
 .post {
-  position: relative;
   clear: both;
-  margin-bottom: 39px;
+  overflow: hidden;
+  margin-bottom: 0;
+  max-height: 140px;
+  -webkit-transition-property: max-height;
+  -moz-transition-property: max-height;
+  -o-transition-property: max-height;
+  transition-property: max-height;
+  -webkit-transition-duration: 2s;
+  -moz-transition-duration: 2s;
+  -o-transition-duration: 2s;
+  transition-duration: 2s;
 }
 .post header {
   -webkit-box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1);
@@ -317,6 +326,8 @@ h1, h2 {
   padding: 1.25em 0;
   width: 100%;
   height: 71px;
+  position: relative;
+  z-index: 1;
 }
 .post hgroup {
   border-left: 2px solid lime;
@@ -341,6 +352,8 @@ h1, h2 {
   text-align: right;
   float: right;
   margin: -101px 5% 0 0;
+  position: relative;
+  z-index: 1;
 }
 .post .thumb {
   height: 140px;
@@ -423,20 +436,26 @@ h1, h2 {
 .post .media-module.videos h1 {
   top: 2.5em;
 }
-.post:nth-child(2n) a:hover {
-  color: #005aff;
-}
-.post:nth-child(2n) hgroup {
-  border-color: #005aff;
-}
-.post:nth-child(3n) a:hover {
+.post:nth-child(3n) .title:hover {
   color: #ed217c;
 }
 .post:nth-child(3n) hgroup {
   border-color: #ed217c;
 }
-.post.single {
-  height: auto;
+.post:nth-child(2n) .title:hover {
+  color: #005aff;
+}
+.post:nth-child(2n) hgroup {
+  border-color: #005aff;
+}
+.post .title:hover {
+  color: lime;
+}
+.post hgroup {
+  border-color: lime;
+}
+.post.open {
+  max-height: 900px;
   margin-bottom: 15px;
 }
 
@@ -507,23 +526,26 @@ h1, h2 {
 .js .hidden-content {
   display: none;
 }
+.js .post .title {
+  cursor: pointer;
+}
 
-.no-js .post.single .viewing figcaption {
+.no-js .post.open .viewing figcaption {
   display: block;
   margin-top: 0;
   float: right;
   height: auto;
   padding-bottom: 2.5em;
 }
-.no-js .post.single .media-nav {
+.no-js .post.open .media-nav {
   height: auto;
 }
-.no-js .post.single .media-nav .inactive {
+.no-js .post.open .media-nav .inactive {
   display: block;
 }
-.no-js .post.single .media-nav img {
+.no-js .post.open .media-nav img {
   width: 100%;
 }
-.no-js .post.single .fullscreen-image {
+.no-js .post.open .fullscreen-image {
   display: none;
 }
