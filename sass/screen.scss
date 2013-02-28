@@ -46,6 +46,12 @@ h1, h2 {
 		@include span-columns(4);
 		@include nth-omega(last);
 		text-align: center;
+
+		&.active {
+			text-transform: uppercase;
+			text-decoration: underline;
+			a {color: $third-color }
+		}
 	}
 }
 
@@ -240,9 +246,11 @@ h1, h2 {
 			top: rhythm(1);
 			cursor: pointer;
 
-			&:hover, &.active {
+			&:hover {
 				color: $main-color;
 			}
+
+
 		}
 
 		ol {
@@ -250,10 +258,9 @@ h1, h2 {
 			margin: 0 auto;
 			text-align: center;
 			@include clearfix;
+			display: none;
 
-			&.inactive {
-				display: none;
-			}
+
 		}
 
 		&.videos {
@@ -261,6 +268,24 @@ h1, h2 {
 				top: rhythm(2);
 			}
 		}
+
+
+		&.inactive {
+			ol {
+							}
+		}
+
+		&.active {
+			ol {
+				display: block;
+			}
+			h1 {
+				color: $main-color;
+			}
+
+		}
+
+
 
 	}
 
@@ -281,8 +306,12 @@ h1, h2 {
 		hgroup {
 			border-color: $third-color; 
 		}
-		.media-module h1 {
-			&:hover, &.active {
+		.media-module {
+			&.active h1 {
+				color: $third-color;
+			}
+
+			h1:hover {
 				color: $third-color;
 			}
 		}
@@ -296,8 +325,12 @@ h1, h2 {
 		hgroup {
 			border-color: $second-color; 
 		}
-		.media-module h1 {
-			&:hover, &.active {
+		.media-module {
+			&.active h1 {
+				color: $second-color;
+			}
+
+			h1:hover {
 				color: $second-color;
 			}
 		}

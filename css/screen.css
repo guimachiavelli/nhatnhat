@@ -245,6 +245,13 @@ h1, h2 {
   float: right;
   margin-right: 0;
 }
+#top-bar .nav-link.active {
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+#top-bar .nav-link.active a {
+  color: #ed217c;
+}
 
 #intro {
   margin-bottom: 6.25em;
@@ -422,7 +429,7 @@ h1, h2 {
   top: 1.25em;
   cursor: pointer;
 }
-.post .media-module h1:hover, .post .media-module h1.active {
+.post .media-module h1:hover {
   color: lime;
 }
 .post .media-module ol {
@@ -431,12 +438,16 @@ h1, h2 {
   text-align: center;
   overflow: hidden;
   *zoom: 1;
-}
-.post .media-module ol.inactive {
   display: none;
 }
 .post .media-module.videos h1 {
   top: 2.5em;
+}
+.post .media-module.active ol {
+  display: block;
+}
+.post .media-module.active h1 {
+  color: lime;
 }
 .post .title:hover {
   color: lime;
@@ -450,7 +461,10 @@ h1, h2 {
 .post.third hgroup {
   border-color: #ed217c;
 }
-.post.third .media-module h1:hover, .post.third .media-module h1.active {
+.post.third .media-module.active h1 {
+  color: #ed217c;
+}
+.post.third .media-module h1:hover {
   color: #ed217c;
 }
 .post.second a:hover, .post.second .title:hover {
@@ -459,7 +473,10 @@ h1, h2 {
 .post.second hgroup {
   border-color: #005aff;
 }
-.post.second .media-module h1:hover, .post.second .media-module h1.active {
+.post.second .media-module.active h1 {
+  color: #005aff;
+}
+.post.second .media-module h1:hover {
   color: #005aff;
 }
 .post.open {
