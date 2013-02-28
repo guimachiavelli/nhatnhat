@@ -50,10 +50,9 @@ h1, h2 {
 }
 
 #intro {
-	@include container;
 	margin-bottom: rhythm(5);
-	
-	
+	height: rhythm(5);
+	position: relative;
 	
 	.name {
 		position: relative;
@@ -70,20 +69,26 @@ h1, h2 {
 	}
 
 	.nhat, .vu, .dang {
-		@include span-columns(5);
-		@include nth-omega(last);
 		text-align: center;
+		position: absolute;
 	}
 
 	.name {
 		.nhat {
-			margin-left: -20px;
+			left: 5%;
+		}
+
+		.vu {
+			left: 50%;
+			margin-left: -1em;
 		}
 
 		.dang {
-			margin-right: -20px
+			right: 5%;
 		}
+		
 	}
+
 
 	.dash {
 		position: absolute;
@@ -92,6 +97,19 @@ h1, h2 {
 
 	.pronunciation {
 		@include adjust-font-size-to(18px);
+		top: rhythm(3);
+
+		.nhat {
+			margin-left: 30px;
+		}
+
+		.vu {
+			margin-left: -48px;
+		}
+
+		.dang {
+			margin-right: 37px
+		}
 	}
 
 }
@@ -153,7 +171,8 @@ h1, h2 {
 	}
 
 	.media {
-		padding-bottom: 2em;
+		@include make-square;
+		padding: 0 0 2em 0;
 	}
 
 	.viewing {
@@ -175,7 +194,6 @@ h1, h2 {
 		img {
 			width: 100%;
 			line-height: 0;
-
 		}
 
 		&:hover {
@@ -222,7 +240,7 @@ h1, h2 {
 			top: rhythm(1);
 			cursor: pointer;
 
-			&:hover {
+			&:hover, &.active {
 				color: $main-color;
 			}
 		}
@@ -246,38 +264,54 @@ h1, h2 {
 
 	}
 
-	&:nth-child(3n) {
-		.title:hover {
+
+	.title:hover {
+		color: $main-color;
+	}		
+	hgroup {
+		border-color: $main-color; 
+	}
+
+
+
+	&.third {
+		a:hover, .title:hover {
 			color: $third-color;
 		}		
 		hgroup {
 			border-color: $third-color; 
 		}
+		.media-module h1 {
+			&:hover, &.active {
+				color: $third-color;
+			}
+		}
+
 	}
 
-	&:nth-child(2n) {
-		.title:hover {
+	&.second {
+		a:hover, .title:hover {
 			color: $second-color;
 		}
 		hgroup {
 			border-color: $second-color; 
 		}
-	}
-
-	& {
-		.title:hover {
-			color: $main-color;
-		}		
-		hgroup {
-			border-color: $main-color; 
+		.media-module h1 {
+			&:hover, &.active {
+				color: $second-color;
+			}
 		}
 	}
 
+
+
 	&.open {
 		max-height: 900px;
-		margin-bottom: 15px;
+		padding-bottom: rhythm();
+		margin-bottom: -15px;
 	}
 }
+
 
 
 .main-module {

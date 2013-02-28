@@ -247,19 +247,9 @@ h1, h2 {
 }
 
 #intro {
-  *zoom: 1;
-  max-width: 920px;
-  _width: 920px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-left: auto;
-  margin-right: auto;
   margin-bottom: 6.25em;
-}
-#intro:after {
-  content: "";
-  display: table;
-  clear: both;
+  height: 6.25em;
+  position: relative;
 }
 #intro .name {
   position: relative;
@@ -279,21 +269,18 @@ h1, h2 {
   float: left;
 }
 #intro .nhat, #intro .vu, #intro .dang {
-  width: 29.78723%;
-  float: left;
-  margin-right: 2.12766%;
-  display: inline;
   text-align: center;
-}
-#intro .nhat:last-child, #intro .vu:last-child, #intro .dang:last-child {
-  float: right;
-  margin-right: 0;
+  position: absolute;
 }
 #intro .name .nhat {
-  margin-left: -20px;
+  left: 5%;
+}
+#intro .name .vu {
+  left: 50%;
+  margin-left: -1em;
 }
 #intro .name .dang {
-  margin-right: -20px;
+  right: 5%;
 }
 #intro .dash {
   position: absolute;
@@ -302,6 +289,16 @@ h1, h2 {
 #intro .pronunciation {
   font-size: 1.5em;
   line-height: 1.66667em;
+  top: 3.75em;
+}
+#intro .pronunciation .nhat {
+  margin-left: 30px;
+}
+#intro .pronunciation .vu {
+  margin-left: -48px;
+}
+#intro .pronunciation .dang {
+  margin-right: 37px;
 }
 
 .post {
@@ -363,7 +360,12 @@ h1, h2 {
   width: 100%;
 }
 .post .media {
-  padding-bottom: 2em;
+  -webkit-box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 1.25em 0;
+  padding: 0 0 2em 0;
 }
 .post .viewing {
   line-height: 0;
@@ -420,7 +422,7 @@ h1, h2 {
   top: 1.25em;
   cursor: pointer;
 }
-.post .media-module h1:hover {
+.post .media-module h1:hover, .post .media-module h1.active {
   color: lime;
 }
 .post .media-module ol {
@@ -436,27 +438,34 @@ h1, h2 {
 .post .media-module.videos h1 {
   top: 2.5em;
 }
-.post:nth-child(3n) .title:hover {
-  color: #ed217c;
-}
-.post:nth-child(3n) hgroup {
-  border-color: #ed217c;
-}
-.post:nth-child(2n) .title:hover {
-  color: #005aff;
-}
-.post:nth-child(2n) hgroup {
-  border-color: #005aff;
-}
 .post .title:hover {
   color: lime;
 }
 .post hgroup {
   border-color: lime;
 }
+.post.third a:hover, .post.third .title:hover {
+  color: #ed217c;
+}
+.post.third hgroup {
+  border-color: #ed217c;
+}
+.post.third .media-module h1:hover, .post.third .media-module h1.active {
+  color: #ed217c;
+}
+.post.second a:hover, .post.second .title:hover {
+  color: #005aff;
+}
+.post.second hgroup {
+  border-color: #005aff;
+}
+.post.second .media-module h1:hover, .post.second .media-module h1.active {
+  color: #005aff;
+}
 .post.open {
   max-height: 900px;
-  margin-bottom: 15px;
+  padding-bottom: 1.25em;
+  margin-bottom: -15px;
 }
 
 .main-module {
