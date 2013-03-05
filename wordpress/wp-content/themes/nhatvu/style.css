@@ -1,0 +1,680 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/css?family=Karla);
+/*
+Theme Name: Nhat-Vu Dang 
+Theme URI: http://nhat-vu.com/
+Description: Custom made theme for nhat-vu dang.
+Author: gui machiavelli
+Author URI: http://guimachiavelli.com/
+Version: 1.0
+Tags: 
+*/
+/*  based on HTML5 Boilerplate */
+/* 
+  html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
+  v1.4 2009-07-27 | Authors: Eric Meyer & Richard Clark
+  html5doctor.com/html-5-reset-stylesheet/
+*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_reset\.scss}line{font-family:\0000320}}
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  list-style: none;
+  font-weight: 400;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_reset\.scss}line{font-family:\0000332}}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_reset\.scss}line{font-family:\0000335}}
+button, input, select, textarea {
+  margin: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_reset\.scss}line{font-family:\0000336}}
+ul {
+  list-style: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_reset\.scss}line{font-family:\0000337}}
+blockquote, q {
+  quotes: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_reset\.scss}line{font-family:\0000339}}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_reset\.scss}line{font-family:\0000340}}
+a {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_reset\.scss}line{font-family:\0000341}}
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_reset\.scss}line{font-family:\0000342}}
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_reset\.scss}line{font-family:\0000343}}
+del {
+  text-decoration: line-through;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_reset\.scss}line{font-family:\0000344}}
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_reset\.scss}line{font-family:\0000345}}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* tables still need cellspacing="0" in the markup */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_reset\.scss}line{font-family:\0000346}}
+input, select {
+  vertical-align: middle;
+}
+
+/* END RESET CSS */
+/*********************************************
+/*****************************
+
+	Basic Grid settings
+
+/*****************************
+*********************************************/
+/*********************************************
+/*****************************
+
+	Typography settings
+
+/*****************************
+*********************************************/
+@font-face {
+  font-family: 'Ronda';
+  src: url("fonts/25BCA0_0_0.eot");
+  src: url("fonts/25BCA0_0_0.eot?#iefix") format("embedded-opentype"), url("fonts/25BCA0_0_0.woff") format("woff"), url("fonts/25BCA0_0_0.ttf") format("truetype"), url("fonts/25BCA0_0_0.svg#wf") format("svg");
+}
+
+/********************************************
+/********************************************
+
+	general html elements and helpers
+
+/********************************************
+/********************************************/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_general\.scss}line{font-family:\000039}}
+a {
+  text-decoration: none;
+  color: #231f20;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_general\.scss}line{font-family:\0000313}}
+p a {
+  text-decoration: underline;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_general\.scss}line{font-family:\0000317}}
+a:hover {
+  color: lime;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_general\.scss}line{font-family:\0000322}}
+strong {
+  font-weight: 800;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_general\.scss}line{font-family:\0000323}}
+em {
+  font-style: italic;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_general\.scss}line{font-family:\0000326}}
+q:before {
+  content: "“";
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_general\.scss}line{font-family:\0000327}}
+q:after {
+  content: "”";
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_general\.scss}line{font-family:\0000330}}
+p {
+  margin-bottom: 1.25em;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_general\.scss}line{font-family:\0000336}}
+::-moz-selection {
+  background: lime;
+  color: #fff;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_general\.scss}line{font-family:\0000341}}
+::selection {
+  background: lime;
+  color: #fff;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_general\.scss}line{font-family:\0000348}}
+.chromeframe {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_general\.scss}line{font-family:\0000356}}
+.outline {
+  display: none;
+}
+
+/********************************************
+/********************************************
+
+	ui elements
+
+	alerts, badges, tooltips, buttons
+
+/********************************************
+/********************************************/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/\.rvm\/gems\/ruby-1\.9\.3-p327\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/typography\/_vertical_rhythm\.scss}line{font-family:\0000361}}
+* html {
+  font-size: 75%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/\.rvm\/gems\/ruby-1\.9\.3-p327\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/typography\/_vertical_rhythm\.scss}line{font-family:\0000364}}
+html {
+  font-size: 12px;
+  line-height: 1.25em;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\0000316}}
+body {
+  line-height: 2.5em;
+  font-family: "Karla", Helvetica, sans-serif;
+  background: #f5f7f5;
+  color: #231f20;
+  padding-top: 3.75em;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\0000326}}
+h1, h2 {
+  font-family: "Ronda", Helvetica, sans-serif;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\0000330}}
+#top-bar {
+  position: absolute;
+  top: 0;
+  background: #fff;
+  width: 100%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\0000336}}
+#top-bar ul {
+  overflow: hidden;
+  *zoom: 1;
+  *zoom: 1;
+  max-width: 920px;
+  _width: 920px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/\.rvm\/gems\/ruby-1\.9\.3-p327\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/utilities\/general\/_clearfix\.scss}line{font-family:\0000338}}
+#top-bar ul:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\0000341}}
+#top-bar .nav-link {
+  float: left;
+  font-size: 1.5em;
+  line-height: 1.66667em;
+  font-family: "Ronda", Helvetica, sans-serif;
+  width: 23.40426%;
+  float: left;
+  margin-right: 2.12766%;
+  display: inline;
+  text-align: center;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/\.rvm\/gems\/ruby-1\.9\.3-p327\/gems\/susy-1\.0\.5\/sass\/susy\/_grid\.scss}line{font-family:\00003185}}
+#top-bar .nav-link:last-child {
+  float: right;
+  margin-right: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\0000349}}
+#top-bar .nav-link.active {
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\0000352}}
+#top-bar .nav-link.active a {
+  color: #ed217c;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\0000357}}
+#intro {
+  margin-bottom: 6.25em;
+  height: 6.25em;
+  position: relative;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\0000362}}
+#intro .name {
+  position: relative;
+  *zoom: 1;
+  text-rendering: optimizeLegibility;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/\.rvm\/gems\/ruby-1\.9\.3-p327\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/utilities\/general\/_clearfix\.scss}line{font-family:\0000338}}
+#intro .name:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\0000368}}
+#intro h1.name {
+  font-size: 5.41667em;
+  line-height: 1.15385em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\0000372}}
+#intro b {
+  float: left;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\0000376}}
+#intro .nhat, #intro .vu, #intro .dang {
+  text-align: center;
+  position: absolute;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\0000382}}
+#intro .name .nhat {
+  left: 5%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\0000386}}
+#intro .name .vu {
+  left: 50%;
+  margin-left: -1em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\0000391}}
+#intro .name .dang {
+  right: 5%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\0000398}}
+#intro .dash {
+  position: absolute;
+  left: 28%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003103}}
+#intro .pronunciation {
+  font-size: 1.5em;
+  line-height: 1.66667em;
+  top: 3.75em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003107}}
+#intro .pronunciation .nhat {
+  margin-left: 30px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003111}}
+#intro .pronunciation .vu {
+  margin-left: -48px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003115}}
+#intro .pronunciation .dang {
+  margin-right: 37px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003122}}
+.post {
+  clear: both;
+  overflow: hidden;
+  margin-bottom: 0;
+  max-height: 140px;
+  -webkit-transition-property: max-height;
+  -moz-transition-property: max-height;
+  -o-transition-property: max-height;
+  transition-property: max-height;
+  -webkit-transition-duration: 2s;
+  -moz-transition-duration: 2s;
+  -o-transition-duration: 2s;
+  transition-duration: 2s;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003131}}
+.post header {
+  -webkit-box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 1.25em 0;
+  width: 100%;
+  height: 71px;
+  position: relative;
+  z-index: 1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003139}}
+.post hgroup {
+  border-left: 2px solid lime;
+  border-right: 2px solid lime;
+  width: 95%;
+  margin: 0 2.5%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003147}}
+.post .post-number {
+  float: left;
+  width: 40px;
+  height: 71px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003153}}
+.post .content {
+  width: 40%;
+  margin: 3.75em 0 0 9%;
+  font-size: 1em;
+  line-height: 1.5625em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003159}}
+.post .thumb, .post .media {
+  width: 40%;
+  overflow: hidden;
+  text-align: right;
+  float: right;
+  margin: -101px 5% 0 0;
+  position: relative;
+  z-index: 1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003169}}
+.post .thumb {
+  height: 140px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003172}}
+.post .thumb img {
+  margin-top: -25%;
+  width: 100%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003178}}
+.post .media {
+  -webkit-box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 1.25em 0;
+  padding: 0 0 2em 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003183}}
+.post .viewing {
+  line-height: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003186}}
+.post .viewing figcaption {
+  position: relative;
+  z-index: 5;
+  float: right;
+  display: none;
+  margin-top: -6.25em;
+  background: #fff;
+  text-align: center;
+  padding: 1.25em 5%;
+  width: 90%;
+  height: 3.75em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003199}}
+.post .viewing img {
+  width: 100%;
+  line-height: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003205}}
+.post .viewing:hover figcaption {
+  display: block;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003211}}
+.post .media-nav {
+  background: #fff;
+  padding: 0.625em 5%;
+  width: 90%;
+  height: 3.125em;
+  float: right;
+  position: relative;
+  font-family: "Ronda", Helvetica, sans-serif;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003220}}
+.post .media-nav li {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003226}}
+.post .media-nav .fullscreen-image {
+  position: absolute;
+  right: 4%;
+  top: 8px;
+  width: 50px;
+  text-align: right;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003236}}
+.post .media-module {
+  clear: left;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003239}}
+.post .media-module h1 {
+  position: absolute;
+  width: 60px;
+  line-height: 1;
+  text-align: center;
+  left: 0;
+  top: 1.25em;
+  cursor: pointer;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003248}}
+.post .media-module h1:hover {
+  color: lime;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003255}}
+.post .media-module ol {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden;
+  *zoom: 1;
+  display: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003266}}
+.post .media-module.videos h1 {
+  top: 2.5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003278}}
+.post .media-module.active ol {
+  display: block;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003281}}
+.post .media-module.active h1 {
+  color: lime;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003292}}
+.post .title:hover {
+  color: lime;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003295}}
+.post hgroup {
+  border-color: lime;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003302}}
+.post.third a:hover, .post.third .title:hover {
+  color: #ed217c;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003305}}
+.post.third hgroup {
+  border-color: #ed217c;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003309}}
+.post.third .media-module.active h1 {
+  color: #ed217c;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003313}}
+.post.third .media-module h1:hover {
+  color: #ed217c;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003321}}
+.post.second a:hover, .post.second .title:hover {
+  color: #005aff;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003324}}
+.post.second hgroup {
+  border-color: #005aff;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003328}}
+.post.second .media-module.active h1 {
+  color: #005aff;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003332}}
+.post.second .media-module h1:hover {
+  color: #005aff;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003340}}
+.post.open {
+  max-height: 900px;
+  padding-bottom: 1.25em;
+  margin-bottom: -15px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003349}}
+.main-module {
+  -webkit-box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 1.25em 0;
+  overflow: hidden;
+  *zoom: 1;
+  padding: 1.25em 2.5%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003355}}
+.main-module header {
+  border-left: 2px solid lime;
+  border-right: 2px solid lime;
+  width: 100%;
+  overflow: hidden;
+  *zoom: 1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003363}}
+.main-module .title {
+  text-align: center;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003367}}
+.main-module .content {
+  width: 35%;
+  font-size: 1em;
+  line-height: 1.4375em;
+  padding: 0 10%;
+  margin-top: 3.75em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003376}}
+.main-module#follow header {
+  height: 81px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003380}}
+.main-module#follow .title {
+  width: 95%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003384}}
+.main-module#follow .content {
+  margin-top: -81px;
+  width: 80%;
+  text-align: center;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003389}}
+.main-module#follow .content a {
+  display: block;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003394}}
+.main-module#follow li {
+  margin-bottom: 2.5em;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003400}}
+#nhat-photo {
+  float: right;
+  margin-top: -101px;
+  margin-right: 2.5%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003407}}
+.title {
+  font-size: 3em;
+  line-height: 1.04167em;
+  width: 50%;
+  padding: 0 2.5%;
+  overflow: hidden;
+  text-rendering: optimizeLegibility;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003417}}
+.content {
+  text-rendering: optimizeLegibility;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_js\.scss}line{font-family:\000033}}
+.js .hidden-content {
+  display: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_js\.scss}line{font-family:\000038}}
+.js .post .title {
+  cursor: pointer;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_js\.scss}line{font-family:\0000319}}
+.no-js .post.open .viewing figcaption {
+  display: block;
+  margin-top: 0;
+  float: right;
+  height: auto;
+  padding-bottom: 2.5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_js\.scss}line{font-family:\0000329}}
+.no-js .post.open .media-nav {
+  height: auto;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_js\.scss}line{font-family:\0000331}}
+.no-js .post.open .media-nav .inactive {
+  display: block;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_js\.scss}line{font-family:\0000332}}
+.no-js .post.open .media-nav img {
+  width: 100%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/partials\/_js\.scss}line{font-family:\0000335}}
+.no-js .post.open .fullscreen-image {
+  display: none;
+}
