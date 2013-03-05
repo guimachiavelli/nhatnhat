@@ -43,6 +43,8 @@ function get_blogaddress_by_id( $blog_id ) {
  * @return string
  */
 function get_blogaddress_by_name( $blogname ) {
+	global $current_site;
+
 	if ( is_subdomain_install() ) {
 		if ( $blogname == 'main' )
 			$blogname = 'www';
@@ -82,7 +84,7 @@ function get_blogaddress_by_domain( $domain, $path ) {
 }
 
 /**
- * Given a blog's (subdomain or directory) slug, retrieve its id.
+ * Given a blog's (subdomain or directory) slug, retrieve it's id.
  *
  * @since MU
  *

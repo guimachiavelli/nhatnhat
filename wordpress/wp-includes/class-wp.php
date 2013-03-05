@@ -25,7 +25,7 @@ class WP {
 	 * @since 2.0.0
 	 * @var array
 	 */
-	var $private_query_vars = array( 'offset', 'posts_per_page', 'posts_per_archive_page', 'showposts', 'nopaging', 'post_type', 'post_status', 'category__in', 'category__not_in', 'category__and', 'tag__in', 'tag__not_in', 'tag__and', 'tag_slug__in', 'tag_slug__and', 'tag_id', 'post_mime_type', 'perm', 'comments_per_page', 'post__in', 'post__not_in', 'post_parent__in', 'post_parent__not_in' );
+	var $private_query_vars = array('offset', 'posts_per_page', 'posts_per_archive_page', 'showposts', 'nopaging', 'post_type', 'post_status', 'category__in', 'category__not_in', 'category__and', 'tag__in', 'tag__not_in', 'tag__and', 'tag_slug__in', 'tag_slug__and', 'tag_id', 'post_mime_type', 'perm', 'comments_per_page', 'post__in', 'post__not_in');
 
 	/**
 	 * Extra query variables set by the user.
@@ -142,15 +142,15 @@ class WP {
 			$this->did_permalink = true;
 
 			if ( isset($_SERVER['PATH_INFO']) )
-				$pathinfo = wp_unslash( $_SERVER['PATH_INFO'] );
+				$pathinfo = $_SERVER['PATH_INFO'];
 			else
 				$pathinfo = '';
 			$pathinfo_array = explode('?', $pathinfo);
 			$pathinfo = str_replace("%", "%25", $pathinfo_array[0]);
-			$req_uri = wp_unslash( $_SERVER['REQUEST_URI'] );
+			$req_uri = $_SERVER['REQUEST_URI'];
 			$req_uri_array = explode('?', $req_uri);
 			$req_uri = $req_uri_array[0];
-			$self = wp_unslash( $_SERVER['PHP_SELF'] );
+			$self = $_SERVER['PHP_SELF'];
 			$home_path = parse_url(home_url());
 			if ( isset($home_path['path']) )
 				$home_path = $home_path['path'];
@@ -255,9 +255,9 @@ class WP {
 			if ( isset( $this->extra_query_vars[$wpvar] ) )
 				$this->query_vars[$wpvar] = $this->extra_query_vars[$wpvar];
 			elseif ( isset( $_POST[$wpvar] ) )
-				$this->query_vars[$wpvar] = wp_unslash( $_POST[$wpvar] );
+				$this->query_vars[$wpvar] = $_POST[$wpvar];
 			elseif ( isset( $_GET[$wpvar] ) )
-				$this->query_vars[$wpvar] = wp_unslash( $_GET[$wpvar] );
+				$this->query_vars[$wpvar] = $_GET[$wpvar];
 			elseif ( isset( $perma_query_vars[$wpvar] ) )
 				$this->query_vars[$wpvar] = $perma_query_vars[$wpvar];
 
@@ -356,7 +356,7 @@ class WP {
 
 			// Support for Conditional GET
 			if (isset($_SERVER['HTTP_IF_NONE_MATCH']))
-				$client_etag = stripslashes( wp_unslash( $_SERVER['HTTP_IF_NONE_MATCH'] ) ); // Retain extra strip. See #2597
+				$client_etag = stripslashes(stripslashes($_SERVER['HTTP_IF_NONE_MATCH']));
 			else $client_etag = false;
 
 			$client_last_modified = empty($_SERVER['HTTP_IF_MODIFIED_SINCE']) ? '' : trim($_SERVER['HTTP_IF_MODIFIED_SINCE']);

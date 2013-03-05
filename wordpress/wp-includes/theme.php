@@ -631,7 +631,7 @@ function preview_theme_ob_filter( $content ) {
  */
 function preview_theme_ob_filter_callback( $matches ) {
 	if ( strpos($matches[4], 'onclick') !== false )
-		$matches[4] = preg_replace('#onclick=([\'"]).*?(?<!\\\)\\1#i', '', $matches[4]); //Strip out any onclicks from rest of <a>. (?<!\\\) means to ignore the '" if it's escaped by \  to prevent breaking mid-attribute.
+		$matches[4] = preg_replace('#onclick=([\'"]).*?(?<!\\\)\\1#i', '', $matches[4]); //Strip out any onclicks from rest of <a>. (?<!\\\) means to ignore the '" if its escaped by \  to prevent breaking mid-attribute.
 	if (
 		( false !== strpos($matches[3], '/wp-admin/') )
 	||
@@ -1257,16 +1257,8 @@ function add_theme_support( $feature ) {
 		$args = array_slice( func_get_args(), 1 );
 
 	switch ( $feature ) {
-		case 'structured-post-formats' :
-			if ( is_array( $args[0] ) )
-				$args[0] = array_intersect( $args[0], array_keys( get_post_format_slugs() ) );
-			// structured-post-formats support automatically adds support for post-formats.
-			$_wp_theme_features['post-formats'] = $args;
 		case 'post-formats' :
-			// An existing structured-post-formats support declaration overrides post-formats.
-			if ( current_theme_supports( 'structured-post-formats' ) )
-				$args = get_theme_support( 'structured-post-formats' );
-			elseif ( is_array( $args[0] ) )
+			if ( is_array( $args[0] ) )
 				$args[0] = array_intersect( $args[0], array_keys( get_post_format_slugs() ) );
 			break;
 
@@ -1497,7 +1489,7 @@ function _remove_theme_support( $feature ) {
 
 	switch ( $feature ) {
 		case 'custom-header' :
-			if ( ! did_action( 'wp_loaded' ) )
+			if ( false === did_action( 'wp_loaded', '_custom_header_background_just_in_time' ) )
 				break;
 			$support = get_theme_support( 'custom-header' );
 			if ( $support[0]['wp-head-callback'] )
@@ -1507,7 +1499,7 @@ function _remove_theme_support( $feature ) {
 			break;
 
 		case 'custom-background' :
-			if ( ! did_action( 'wp_loaded' ) )
+			if ( false === did_action( 'wp_loaded', '_custom_header_background_just_in_time' ) )
 				break;
 			$support = get_theme_support( 'custom-background' );
 			remove_action( 'wp_head', $support[0]['wp-head-callback'] );
@@ -1553,7 +1545,6 @@ function current_theme_supports( $feature ) {
 			return in_array( $content_type, $_wp_theme_features[$feature][0] );
 			break;
 
-		case 'structured-post-formats':
 		case 'post-formats':
 			// specific post formats can be registered by passing an array of types to
 			// add_theme_support()

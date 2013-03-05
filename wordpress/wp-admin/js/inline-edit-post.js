@@ -42,7 +42,7 @@ inlineEditPost = {
 		});
 
 		// add events
-		$('#the-list').on('click', 'a.editinline', function(){
+		$('a.editinline').live('click', function(){
 			inlineEditPost.edit(this);
 			return false;
 		});
@@ -52,6 +52,15 @@ inlineEditPost = {
 		).siblings( 'fieldset:last' ).prepend(
 			$('#inline-edit label.inline-edit-tags').clone()
 		);
+
+		// hiearchical taxonomies expandable?
+		$('span.catshow').click(function(){
+			$(this).hide().next().show().parent().next().addClass("cat-hover");
+		});
+
+		$('span.cathide').click(function(){
+			$(this).hide().prev().show().parent().next().removeClass("cat-hover");
+		});
 
 		$('select[name="_status"] option[value="future"]', bulkRow).remove();
 

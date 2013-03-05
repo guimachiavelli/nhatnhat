@@ -315,11 +315,10 @@ class WP_Widget_Meta extends WP_Widget {
 			<li><?php wp_loginout(); ?></li>
 			<li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php echo esc_attr(__('Syndicate this site using RSS 2.0')); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>'); ?></a></li>
 			<li><a href="<?php bloginfo('comments_rss2_url'); ?>" title="<?php echo esc_attr(__('The latest comments to all posts in RSS')); ?>"><?php _e('Comments <abbr title="Really Simple Syndication">RSS</abbr>'); ?></a></li>
-			<?php echo apply_filters( 'widget_meta_poweredby', sprintf( '<li><a href="%s" title="%s">%s</a></li>',
-				esc_url( __( 'http://wordpress.org/' ) ),
-				esc_attr__( 'Powered by WordPress, state-of-the-art semantic personal publishing platform.' ),
-				_x( 'WordPress.org', 'meta widget link text' )
-			) ); ?>
+			<li><a href="<?php esc_attr_e( 'http://wordpress.org/' ); ?>" title="<?php echo esc_attr(__('Powered by WordPress, state-of-the-art semantic personal publishing platform.')); ?>"><?php
+			/* translators: meta widget link text */
+			_e( 'WordPress.org' );
+			?></a></li>
 			<?php wp_meta(); ?>
 			</ul>
 <?php
@@ -413,7 +412,7 @@ class WP_Widget_Text extends WP_Widget {
 		if ( current_user_can('unfiltered_html') )
 			$instance['text'] =  $new_instance['text'];
 		else
-			$instance['text'] = wp_kses_post( $new_instance['text'] );
+			$instance['text'] = stripslashes( wp_filter_post_kses( addslashes($new_instance['text']) ) ); // wp_filter_post_kses() expects slashed
 		$instance['filter'] = isset($new_instance['filter']);
 		return $instance;
 	}
@@ -1057,8 +1056,8 @@ class WP_Widget_Tag_Cloud extends WP_Widget {
 	}
 
 	function update( $new_instance, $old_instance ) {
-		$instance['title'] = strip_tags( $new_instance['title'] );
-		$instance['taxonomy'] =  $new_instance['taxonomy'];
+		$instance['title'] = strip_tags(stripslashes($new_instance['title']));
+		$instance['taxonomy'] = stripslashes($new_instance['taxonomy']);
 		return $instance;
 	}
 
@@ -1119,7 +1118,7 @@ class WP_Widget_Tag_Cloud extends WP_Widget {
 	}
 
 	function update( $new_instance, $old_instance ) {
-		$instance['title'] = strip_tags( $new_instance['title'] );
+		$instance['title'] = strip_tags( stripslashes($new_instance['title']) );
 		$instance['nav_menu'] = (int) $new_instance['nav_menu'];
 		return $instance;
 	}

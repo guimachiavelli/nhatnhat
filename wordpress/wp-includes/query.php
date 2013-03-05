@@ -1406,8 +1406,8 @@ class WP_Query {
 				$array[$key] = '';
 		}
 
-		$array_keys = array( 'category__in', 'category__not_in', 'category__and', 'post__in', 'post__not_in',
-			'tag__in', 'tag__not_in', 'tag__and', 'tag_slug__in', 'tag_slug__and', 'post_parent__in', 'post_parent__not_in' );
+		$array_keys = array('category__in', 'category__not_in', 'category__and', 'post__in', 'post__not_in',
+			'tag__in', 'tag__not_in', 'tag__and', 'tag_slug__in', 'tag_slug__and');
 
 		foreach ( $array_keys as $key ) {
 			if ( !isset($array[$key]) )
@@ -1733,6 +1733,7 @@ class WP_Query {
 		// Category stuff
 		if ( !empty($q['cat']) && '0' != $q['cat'] && !$this->is_singular && $this->query_vars_changed ) {
 			$q['cat'] = ''.urldecode($q['cat']).'';
+			$q['cat'] = addslashes_gpc($q['cat']);
 			$cat_array = preg_split('/[,\s]+/', $q['cat']);
 			$q['cat'] = '';
 			$req_cats = array();
@@ -2078,7 +2079,7 @@ class WP_Query {
 		if ( $q['day'] )
 			$where .= " AND DAYOFMONTH($wpdb->posts.post_date)='" . $q['day'] . "'";
 
-		// If we've got a post_type AND it's not "any" post_type.
+		// If we've got a post_type AND its not "any" post_type.
 		if ( !empty($q['post_type']) && 'any' != $q['post_type'] ) {
 			foreach ( (array)$q['post_type'] as $_post_type ) {
 				$ptype_obj = get_post_type_object($_post_type);
@@ -2167,15 +2168,8 @@ class WP_Query {
 			$where .= " AND {$wpdb->posts}.ID NOT IN ($post__not_in)";
 		}
 
-		if ( is_numeric( $q['post_parent'] ) ) {
+		if ( is_numeric($q['post_parent']) )
 			$where .= $wpdb->prepare( " AND $wpdb->posts.post_parent = %d ", $q['post_parent'] );
-		} elseif ( $q['post_parent__in'] ) {
-			$post_parent__in = implode( ',', array_map( 'absint', $q['post_parent__in'] ) );
-			$where .= " AND {$wpdb->posts}.post_parent IN ($post_parent__in)";
-		} elseif ( $q['post_parent__not_in'] ) {
-			$post_parent__not_in = implode( ',',  array_map( 'absint', $q['post_parent__not_in'] ) );
-			$where .= " AND {$wpdb->posts}.post_parent NOT IN ($post_parent__not_in)";
-		}
 
 		if ( $q['page_id'] ) {
 			if  ( ('page' != get_option('show_on_front') ) || ( $q['page_id'] != get_option('page_for_posts') ) ) {
@@ -2186,6 +2180,8 @@ class WP_Query {
 
 		// If a search pattern is specified, load the posts that match
 		if ( !empty($q['s']) ) {
+			// added slashes screw with quote grouping when done early, so done later
+			$q['s'] = stripslashes($q['s']);
 			if ( empty( $_GET['s'] ) && $this->is_main_query() )
 				$q['s'] = urldecode($q['s']);
 			if ( !empty($q['sentence']) ) {
@@ -2294,6 +2290,7 @@ class WP_Query {
 			$whichauthor = '';
 		} else {
 			$q['author'] = (string)urldecode($q['author']);
+			$q['author'] = addslashes_gpc($q['author']);
 			if ( strpos($q['author'], '-') !== false ) {
 				$eq = '!=';
 				$andor = 'AND';
@@ -2346,8 +2343,6 @@ class WP_Query {
 			$orderby = '';
 		} elseif ( $q['orderby'] == 'post__in' && ! empty( $post__in ) ) {
 			$orderby = "FIELD( {$wpdb->posts}.ID, $post__in )";
-		} elseif ( $q['orderby'] == 'post_parent__in' && ! empty( $post_parent__in ) ) {
-			$orderby = "FIELD( {$wpdb->posts}.post_parent, $post_parent__in )";
 		} else {
 			// Used to filter values
 			$allowed_keys = array('name', 'author', 'date', 'title', 'modified', 'menu_order', 'parent', 'ID', 'rand', 'comment_count');
@@ -2357,6 +2352,7 @@ class WP_Query {
 				$allowed_keys[] = 'meta_value_num';
 			}
 			$q['orderby'] = urldecode($q['orderby']);
+			$q['orderby'] = addslashes_gpc($q['orderby']);
 
 			$orderby_array = array();
 			foreach ( explode( ' ', $q['orderby'] ) as $i => $orderby ) {

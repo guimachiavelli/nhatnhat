@@ -14,8 +14,8 @@
 
 // Strip, trim, kses, special chars for string saves
 foreach ( array( 'pre_term_name', 'pre_comment_author_name', 'pre_link_name', 'pre_link_target', 'pre_link_rel', 'pre_user_display_name', 'pre_user_first_name', 'pre_user_last_name', 'pre_user_nickname' ) as $filter ) {
-	add_filter( $filter, 'sanitize_text_field' );
-	add_filter( $filter, 'wp_kses_data' );
+	add_filter( $filter, 'sanitize_text_field'  );
+	add_filter( $filter, 'wp_filter_kses'       );
 	add_filter( $filter, '_wp_specialchars', 30 );
 }
 
@@ -31,7 +31,7 @@ foreach ( array( 'term_name', 'comment_author_name', 'link_name', 'link_target',
 
 // Kses only for textarea saves
 foreach ( array( 'pre_term_description', 'pre_link_description', 'pre_link_notes', 'pre_user_description' ) as $filter ) {
-	add_filter( $filter, 'wp_kses_data' );
+	add_filter( $filter, 'wp_filter_kses' );
 }
 
 // Kses only for textarea admin displays
@@ -46,7 +46,7 @@ if ( is_admin() ) {
 foreach ( array( 'pre_comment_author_email', 'pre_user_email' ) as $filter ) {
 	add_filter( $filter, 'trim'           );
 	add_filter( $filter, 'sanitize_email' );
-	add_filter( $filter, 'wp_kses_data' );
+	add_filter( $filter, 'wp_filter_kses' );
 }
 
 // Email admin display
@@ -132,13 +132,12 @@ add_filter( 'the_title', 'wptexturize'   );
 add_filter( 'the_title', 'convert_chars' );
 add_filter( 'the_title', 'trim'          );
 
-add_filter( 'the_content', 'post_formats_compat', 7 );
-add_filter( 'the_content', 'wptexturize'            );
-add_filter( 'the_content', 'convert_smilies'        );
-add_filter( 'the_content', 'convert_chars'          );
-add_filter( 'the_content', 'wpautop'                );
-add_filter( 'the_content', 'shortcode_unautop'      );
-add_filter( 'the_content', 'prepend_attachment'     );
+add_filter( 'the_content', 'wptexturize'        );
+add_filter( 'the_content', 'convert_smilies'    );
+add_filter( 'the_content', 'convert_chars'      );
+add_filter( 'the_content', 'wpautop'            );
+add_filter( 'the_content', 'shortcode_unautop'  );
+add_filter( 'the_content', 'prepend_attachment' );
 
 add_filter( 'the_excerpt',     'wptexturize'      );
 add_filter( 'the_excerpt',     'convert_smilies'  );
@@ -250,7 +249,7 @@ add_action( 'init',                       'smilies_init',                       
 add_action( 'plugins_loaded',             'wp_maybe_load_widgets',                    0    );
 add_action( 'plugins_loaded',             'wp_maybe_load_embeds',                     0    );
 add_action( 'shutdown',                   'wp_ob_end_flush_all',                      1    );
-add_action( 'pre_post_update',            'wp_save_post_revision',                   10, 2 );
+add_action( 'pre_post_update',            'wp_save_post_revision'                          );
 add_action( 'publish_post',               '_publish_post_hook',                       5, 1 );
 add_action( 'transition_post_status',     '_transition_post_status',                  5, 3 );
 add_action( 'transition_post_status',     '_update_term_count_on_transition_post_status', 10, 3 );
@@ -290,8 +289,5 @@ add_filter( 'default_option_link_manager_enabled', '__return_true' );
 
 // This option no longer exists; tell plugins we always support auto-embedding.
 add_filter( 'default_option_embed_autourls', '__return_true' );
-
-// Default settings for heartbeat
-add_filter( 'heartbeat_settings', 'wp_heartbeat_settings' );
 
 unset($filter, $action);

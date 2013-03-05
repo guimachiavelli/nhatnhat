@@ -9,7 +9,7 @@
 /** WordPress Administration Bootstrap */
 require_once('./admin.php');
 
-wp_reset_vars( array( 'action', 'user_id', 'wp_http_referer' ) );
+wp_reset_vars(array('action', 'redirect', 'profile', 'user_id', 'wp_http_referer'));
 
 $user_id = (int) $user_id;
 $current_user = wp_get_current_user();
@@ -54,7 +54,7 @@ get_current_screen()->set_help_sidebar(
     '<p>' . __('<a href="http://wordpress.org/support/" target="_blank">Support Forums</a>') . '</p>'
 );
 
-$wp_http_referer = remove_query_arg(array('update', 'delete_count'), $wp_http_referer );
+$wp_http_referer = remove_query_arg(array('update', 'delete_count'), stripslashes($wp_http_referer));
 
 $user_can_edit = current_user_can( 'edit_posts' ) || current_user_can( 'edit_pages' );
 
@@ -337,7 +337,7 @@ if ( is_multisite() && is_network_admin() && ! IS_PROFILE_PAGE && current_user_c
 	<td><input type="text" name="email" id="email" value="<?php echo esc_attr($profileuser->user_email) ?>" class="regular-text" />
 	<?php
 	$new_email = get_option( $current_user->ID . '_new_email' );
-	if ( $new_email && $new_email['newemail'] != $current_user->user_email && $profileuser->ID == $current_user->ID ) : ?>
+	if ( $new_email && $new_email != $current_user->user_email ) : ?>
 	<div class="updated inline">
 	<p><?php printf( __('There is a pending change of your e-mail to <code>%1$s</code>. <a href="%2$s">Cancel</a>'), $new_email['newemail'], esc_url( self_admin_url( 'profile.php?dismiss=' . $current_user->ID . '_new_email' ) ) ); ?></p>
 	</div>

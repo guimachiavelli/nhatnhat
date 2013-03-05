@@ -44,8 +44,6 @@ TABLE OF CONTENTS:
 25.0 - TinyMCE tweaks
 26.0 - Full Overlay w/ Sidebar
 27.0 - Customize Loader
-28.0 - Nav Menus
-29.0 - HiDPI
 
 
 ------------------------------------------------------------------------------*/
@@ -818,6 +816,8 @@ th.sorted a span {
 }
 
 .inline-edit-row fieldset ul.cat-checklist label,
+.inline-edit-row .catshow,
+.inline-edit-row .cathide,
 .inline-edit-row #bulk-titles div {
 	font-family: Tahoma, Arial, sans-serif;
 }
@@ -2305,6 +2305,10 @@ body.login {
 	margin-right:0;
 }
 
+.auto-add-pages {
+	float: right;
+}
+
 /* Star ratings */
 div.star-holder {
 	background: url('../images/stars-rtl.png?ver=20121108') repeat-x bottom right;
@@ -2532,47 +2536,9 @@ div.sidebar-name h3 {
 	direction: ltr;
 }
 
-.control-section .accordion-section-title {
-	font-family: Tahoma, Arial, sans-serif;
-}
-
-.accordion-section-title:after {
-	right: auto;
-	left: 20px;
-}
-
-/*------------------------------------------------------------------------------
-  28.0 - Nav Menus
-------------------------------------------------------------------------------*/
-.nav-menus-php .major-publishing-actions .publishing-action {
-	float: left;
-}
-
-.menu-settings dd {
-	float: right;
-	padding-right: 170px;
-}
-
-.manage-menus span {
-	float: right;
-}
-
-.menu-settings dt {
-	left: auto;
-	right: 0;
-}
-
-.menu-settings dd input,
-.menu-settings dd span,
-.menu-settings dd label,
-.manage-menus select {
-	float: right;
-	margin-right: 6px;
-}
-
-/*------------------------------------------------------------------------------
-  29.0 - HiDPI
-------------------------------------------------------------------------------*/
+/**
+ * HiDPI Displays
+ */
 @media print,
   (-o-min-device-pixel-ratio: 5/4),
   (-webkit-min-device-pixel-ratio: 1.25),
@@ -2624,6 +2590,8 @@ body.locale-he-il,
 .locale-he-il .inline-edit-row fieldset span.title,
 .locale-he-il .inline-edit-row fieldset span.checkbox-title,
 .locale-he-il .inline-edit-row fieldset ul.cat-checklist label,
+.locale-he-il .inline-edit-row .catshow,
+.locale-he-il .inline-edit-row .cathide,
 .locale-he-il .inline-edit-row #bulk-titles div,
 .locale-he-il p.help,
 .locale-he-il p.description,

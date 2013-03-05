@@ -349,7 +349,7 @@ jQuery(document).ready( function($) {
 			return false;
 		});
 
-		$('#' + taxonomy + 'checklist, #' + taxonomy + 'checklist-pop').on( 'click', 'li.popular-category input[type="checkbox"], input[type="checkbox"]', function() {
+		$('#' + taxonomy + 'checklist li.popular-category input[type="checkbox"], #' + taxonomy + 'checklist-pop input[type="checkbox"]').live( 'click', function(){
 			var t = $(this), c = t.is(':checked'), id = t.val();
 			if ( id && t.parents('#taxonomy-'+taxonomy).length )
 				$('#in-' + taxonomy + '-' + id + ', #in-popular-' + taxonomy + '-' + id).prop( 'checked', c );
@@ -478,7 +478,7 @@ jQuery(document).ready( function($) {
 		$('.cancel-post-visibility', '#post-visibility-select').click(function () {
 			$('#post-visibility-select').slideUp('fast');
 			$('#visibility-radio-' + $('#hidden-post-visibility').val()).prop('checked', true);
-			$('#post_password').val($('#hidden-post-password').val());
+			$('#post_password').val($('#hidden_post_password').val());
 			$('#sticky').prop('checked', $('#hidden-post-sticky').prop('checked'));
 			$('#post-visibility-display').html(visibility);
 			$('.edit-visibility', '#visibility').show();

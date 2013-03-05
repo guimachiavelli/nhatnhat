@@ -22,7 +22,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 			$status = $_REQUEST['plugin_status'];
 
 		if ( isset($_REQUEST['s']) )
-			$_SERVER['REQUEST_URI'] = add_query_arg('s', wp_unslash($_REQUEST['s']) );
+			$_SERVER['REQUEST_URI'] = add_query_arg('s', stripslashes($_REQUEST['s']) );
 
 		$page = $this->get_pagenum();
 	}
@@ -140,7 +140,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 	function _search_callback( $plugin ) {
 		static $term;
 		if ( is_null( $term ) )
-			$term = wp_unslash( $_REQUEST['s'] );
+			$term = stripslashes( $_REQUEST['s'] );
 
 		foreach ( $plugin as $value )
 			if ( stripos( $value, $term ) !== false )
@@ -411,11 +411,11 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					if ( !empty( $plugin_data['Author'] ) ) {
 						$author = $plugin_data['Author'];
 						if ( !empty( $plugin_data['AuthorURI'] ) )
-							$author = '<a href="' . $plugin_data['AuthorURI'] . '" title="' . esc_attr__( 'Visit author homepage' ) . '" target="_blank">' . $plugin_data['Author'] . '</a>';
+							$author = '<a href="' . $plugin_data['AuthorURI'] . '" title="' . esc_attr__( 'Visit author homepage' ) . '">' . $plugin_data['Author'] . '</a>';
 						$plugin_meta[] = sprintf( __( 'By %s' ), $author );
 					}
 					if ( ! empty( $plugin_data['PluginURI'] ) )
-						$plugin_meta[] = '<a href="' . $plugin_data['PluginURI'] . '" title="' . esc_attr__( 'Visit plugin site' ) . '" target="_blank">' . __( 'Visit plugin site' ) . '</a>';
+						$plugin_meta[] = '<a href="' . $plugin_data['PluginURI'] . '" title="' . esc_attr__( 'Visit plugin site' ) . '">' . __( 'Visit plugin site' ) . '</a>';
 
 					$plugin_meta = apply_filters( 'plugin_row_meta', $plugin_meta, $plugin_file, $plugin_data, $status );
 					echo implode( ' | ', $plugin_meta );

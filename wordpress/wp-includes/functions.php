@@ -468,7 +468,7 @@ function do_enclose( $content, $post_ID ) {
 				}
 
 				if ( in_array( substr( $type, 0, strpos( $type, "/" ) ), $allowed_types ) ) {
-					wp_add_post_meta( $post_ID, 'enclosure', "$url\n$len\n$mime\n" );
+					add_post_meta( $post_ID, 'enclosure', "$url\n$len\n$mime\n" );
 				}
 			}
 		}
@@ -727,7 +727,7 @@ function remove_query_arg( $key, $query=false ) {
  *
  * @since 0.71
  *
- * @param array $array Array to walk while sanitizing contents.
+ * @param array $array Array to used to walk while sanitizing contents.
  * @return array Sanitized $array.
  */
 function add_magic_quotes( $array ) {
@@ -1174,7 +1174,7 @@ function is_blog_installed() {
  */
 function wp_nonce_url( $actionurl, $action = -1 ) {
 	$actionurl = str_replace( '&amp;', '&', $actionurl );
-	return esc_url( add_query_arg( '_wpnonce', wp_create_nonce( $action ), $actionurl ) );
+	return esc_html( add_query_arg( '_wpnonce', wp_create_nonce( $action ), $actionurl ) );
 }
 
 /**
@@ -1256,9 +1256,9 @@ function wp_referer_field( $echo = true ) {
  * @return string Original referer field.
  */
 function wp_original_referer_field( $echo = true, $jump_back_to = 'current' ) {
-	$jump_back_to = ( 'previous' == $jump_back_to ) ? wp_get_referer() : wp_unslash( $_SERVER['REQUEST_URI'] );
+	$jump_back_to = ( 'previous' == $jump_back_to ) ? wp_get_referer() : $_SERVER['REQUEST_URI'];
 	$ref = ( wp_get_original_referer() ) ? wp_get_original_referer() : $jump_back_to;
-	$orig_referer_field = '<input type="hidden" name="_wp_original_http_referer" value="' . esc_attr( $ref ) . '" />';
+	$orig_referer_field = '<input type="hidden" name="_wp_original_http_referer" value="' . esc_attr( stripslashes( $ref ) ) . '" />';
 	if ( $echo )
 		echo $orig_referer_field;
 	return $orig_referer_field;
@@ -1277,11 +1277,11 @@ function wp_original_referer_field( $echo = true, $jump_back_to = 'current' ) {
 function wp_get_referer() {
 	$ref = false;
 	if ( ! empty( $_REQUEST['_wp_http_referer'] ) )
-		$ref = wp_unslash( $_REQUEST['_wp_http_referer'] );
+		$ref = $_REQUEST['_wp_http_referer'];
 	else if ( ! empty( $_SERVER['HTTP_REFERER'] ) )
-		$ref = wp_unslash( $_SERVER['HTTP_REFERER'] );
+		$ref = $_SERVER['HTTP_REFERER'];
 
-	if ( $ref && $ref !== wp_unslash( $_SERVER['REQUEST_URI'] ) )
+	if ( $ref && $ref !== $_SERVER['REQUEST_URI'] )
 		return $ref;
 	return false;
 }
@@ -1297,7 +1297,7 @@ function wp_get_referer() {
  */
 function wp_get_original_referer() {
 	if ( !empty( $_REQUEST['_wp_original_http_referer'] ) )
-		return wp_unslash( $_REQUEST['_wp_original_http_referer'] );
+		return $_REQUEST['_wp_original_http_referer'];
 	return false;
 }
 
@@ -1416,18 +1416,21 @@ function get_temp_dir() {
 	if ( $temp )
 		return trailingslashit( rtrim( $temp, '\\' ) );
 
+	$is_win = ( 'WIN' === strtoupper( substr( PHP_OS, 0, 3 ) ) );
+
 	if ( function_exists('sys_get_temp_dir') ) {
 		$temp = sys_get_temp_dir();
-		if ( @is_dir( $temp ) && wp_is_writable( $temp ) )
+		if ( @is_dir( $temp ) && ( $is_win ? win_is_writable( $temp ) : @is_writable( $temp ) ) ) {
 			return trailingslashit( rtrim( $temp, '\\' ) );
+		}
 	}
 
 	$temp = ini_get('upload_tmp_dir');
-	if ( is_dir( $temp ) && wp_is_writable( $temp ) )
+	if ( is_dir( $temp ) && ( $is_win ? win_is_writable( $temp ) : @is_writable( $temp ) ) )
 		return trailingslashit( rtrim( $temp, '\\' ) );
 
 	$temp = WP_CONTENT_DIR . '/';
-	if ( is_dir( $temp ) && wp_is_writable( $temp ) )
+	if ( is_dir( $temp ) && ( $is_win ? win_is_writable( $temp ) : @is_writable( $temp ) ) )
 		return $temp;
 
 	$temp = '/tmp/';
@@ -1435,35 +1438,7 @@ function get_temp_dir() {
 }
 
 /**
- * Determine if a directory is writable.
- *
- * This function is used to work around certain ACL issues
- * in PHP primarily affecting Windows Servers.
- *
- * @see win_is_writable()
- *
- * @since 3.6.0
- *
- * @param string $path
- * @return bool
- */
-function wp_is_writable( $path ) {
-	if ( 'WIN' === strtoupper( substr( PHP_OS, 0, 3 ) ) )
-		return win_is_writable( $path );
-	else
-		return @is_writable( $path );
-}
-
-/**
  * Workaround for Windows bug in is_writable() function
- *
- * PHP has issues with Windows ACL's for determine if a
- * directory is writable or not, this works around them by
- * checking the ability to open files rather than relying
- * upon PHP to interprate the OS ACL.
- *
- * @link http://bugs.php.net/bug.php?id=27609
- * @link http://bugs.php.net/bug.php?id=30931
  *
  * @since 2.8.0
  *
@@ -1471,12 +1446,16 @@ function wp_is_writable( $path ) {
  * @return bool
  */
 function win_is_writable( $path ) {
+	/* will work in despite of Windows ACLs bug
+	 * NOTE: use a trailing slash for folders!!!
+	 * see http://bugs.php.net/bug.php?id=27609
+	 * see http://bugs.php.net/bug.php?id=30931
+	 */
 
-	if ( $path[strlen( $path ) - 1] == '/' ) // if it looks like a directory, check a random file within the directory
+	if ( $path[strlen( $path ) - 1] == '/' ) // recursively return a temporary file path
 		return win_is_writable( $path . uniqid( mt_rand() ) . '.tmp');
-	else if ( is_dir( $path ) ) // If it's a directory (and not a file) check a random file within the directory
+	else if ( is_dir( $path ) )
 		return win_is_writable( $path . '/' . uniqid( mt_rand() ) . '.tmp' );
-
 	// check tmp file for read/write capabilities
 	$should_delete_tmp_file = !file_exists( $path );
 	$f = @fopen( $path, 'a' );
@@ -1912,10 +1891,7 @@ function wp_get_mime_types() {
 	'tif|tiff' => 'image/tiff',
 	'ico' => 'image/x-icon',
 	// Video formats
-	'asf|asx' => 'video/x-ms-asf',
-	'wmv' => 'video/x-ms-wmv',
-	'wmx' => 'video/x-ms-wmx',
-	'wm' => 'video/x-ms-wm',
+	'asf|asx|wax|wmv|wmx' => 'video/asf',
 	'avi' => 'video/avi',
 	'divx' => 'video/divx',
 	'flv' => 'video/x-flv',
@@ -1923,7 +1899,6 @@ function wp_get_mime_types() {
 	'mpeg|mpg|mpe' => 'video/mpeg',
 	'mp4|m4v' => 'video/mp4',
 	'ogv' => 'video/ogg',
-	'webm' => 'video/webm',
 	'mkv' => 'video/x-matroska',
 	// Text formats
 	'txt|asc|c|cc|h' => 'text/plain',
@@ -1939,8 +1914,7 @@ function wp_get_mime_types() {
 	'wav' => 'audio/wav',
 	'ogg|oga' => 'audio/ogg',
 	'mid|midi' => 'audio/midi',
-	'wma' => 'audio/x-ms-wma',
-	'wax' => 'audio/x-ms-wax',
+	'wma' => 'audio/wma',
 	'mka' => 'audio/x-matroska',
 	// Misc application formats
 	'rtf' => 'application/rtf',

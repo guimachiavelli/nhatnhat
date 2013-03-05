@@ -138,15 +138,15 @@ function image_downsize($id, $size = 'medium') {
 	if ( !wp_attachment_is_image($id) )
 		return false;
 
-	// plugins can use this to provide resize services
-	if ( $out = apply_filters( 'image_downsize', false, $id, $size ) )
-		return $out;
-
 	$img_url = wp_get_attachment_url($id);
 	$meta = wp_get_attachment_metadata($id);
 	$width = $height = 0;
 	$is_intermediate = false;
 	$img_url_basename = wp_basename($img_url);
+
+	// plugins can use this to provide resize services
+	if ( $out = apply_filters('image_downsize', false, $id, $size) )
+		return $out;
 
 	// try for a new style intermediate size
 	if ( $intermediate = image_get_intermediate_size($id, $size) ) {
@@ -1051,7 +1051,7 @@ function wp_oembed_add_provider( $format, $provider, $regex = false ) {
 /**
  * Removes an oEmbed provider.
  *
- * @since 3.5.0
+ * @since 3.5
  * @see WP_oEmbed
  *
  * @uses _wp_oembed_get_object()
@@ -1110,12 +1110,12 @@ function wp_embed_handler_googlevideo( $matches, $attr, $url, $rawattr ) {
 }
 
 /**
- * Converts a shorthand byte value to an integer byte value.
+ * {@internal Missing Short Description}}
  *
  * @since 2.3.0
  *
- * @param string $size A shorthand byte value.
- * @return int An integer byte value.
+ * @param unknown_type $size
+ * @return unknown
  */
 function wp_convert_hr_to_bytes( $size ) {
 	$size  = strtolower( $size );
@@ -1130,11 +1130,27 @@ function wp_convert_hr_to_bytes( $size ) {
 }
 
 /**
- * Determine the maximum upload size allowed in php.ini.
+ * {@internal Missing Short Description}}
+ *
+ * @since 2.3.0
+ *
+ * @param unknown_type $bytes
+ * @return unknown
+ */
+function wp_convert_bytes_to_hr( $bytes ) {
+	$units = array( 0 => 'B', 1 => 'kB', 2 => 'MB', 3 => 'GB' );
+	$log   = log( $bytes, 1024 );
+	$power = (int) $log;
+	$size  = pow( 1024, $log - $power );
+	return $size . $units[$power];
+}
+
+/**
+ * {@internal Missing Short Description}}
  *
  * @since 2.5.0
  *
- * @return int Allowed upload size.
+ * @return unknown
  */
 function wp_max_upload_size() {
 	$u_bytes = wp_convert_hr_to_bytes( ini_get( 'upload_max_filesize' ) );
