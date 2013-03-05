@@ -65,4 +65,48 @@
 	add_filter( 'the_content', 'add_figure_tag', 30 );
 
 
+	function print_all_images($the_post_id) {
+	
+		$attachments = get_children(
+			array(
+				'post_parent' => $the_post_id,
+				'post_status' => 'inherit',
+				'post_type' => 'attachment',
+				'post_mime_type' => 'image',
+				'order' => 'ASC',
+				'orderby' => 'menu_order ID'
+			)
+		);
+
+		foreach($attachments as $key=>$image) {
+			$i++;
+//			echo $image->post_excerpt;
+			echo '<li>
+					<a href="#">' . $i . '</a>
+					<figure class="hidden-content">
+						<img src="'. $image->guid .'" alt="' . $image->post_title . '">
+						<figcaption>' . $image->post_excerpt . '</figcaption>
+					</figure>
+				</li>';
+
+		}
+
+		return $attachments;
+	
+	}
+
+	function print_feature_caption($the_id) {
+		$thumb_id = get_post_thumbnail_id($the_id);
+		$args = array(
+			'p' => $thumb_id,
+			'post_type' => 'attachment'
+		);
+		$thumb_image = get_posts($args);
+		$thumb_caption = $thumb_image->post_excerpt;
+
+		return $thumb_image[0]->post_excerpt;
+//		print_r($thumb_image[0]);
+	}
+
+
 ?>
