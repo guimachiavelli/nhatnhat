@@ -8,10 +8,10 @@
 	get_template_part("internal/configs");
 
 	//add section: notas
-	get_template_part("internal/register_links");
+	//get_template_part("internal/register_links");
 	
 	//add section: shelf
-	get_template_part("internal/register_shelf");
+	//get_template_part("internal/register_shelf");
 
 
 
