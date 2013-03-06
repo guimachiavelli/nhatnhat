@@ -21,7 +21,8 @@ $(document).ready(function () {
 
 		target = $(this).children('.hidden-content');
 		test = target[0].innerHTML;
-		$('.viewing').html(test);
+		target.parents('.media').children('.viewing').html(test);
+		
 
 		return false;
 	});
