@@ -1,7 +1,7 @@
 <?php
 	
 	// thumbnails
-	add_theme_support( 'post-thumbnails', array('post') );  
+	add_theme_support( 'post-thumbnails', array('post', 'page') );  
 	set_post_thumbnail_size( 200, 200, true ); // Normal post thumbnails
     add_image_size('featured', 955, 450, true); // Full size screen
 
