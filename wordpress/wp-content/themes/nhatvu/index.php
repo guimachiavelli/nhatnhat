@@ -9,10 +9,18 @@
                 $published_posts = $count_posts->publish;
 
 				while ( have_posts() ) { 
-					the_post();
+                    the_post();
                     $post_number = $number - $published_posts;
+
+                    if ($number_class == '' || $number_class == 'third') {
+                        $number_class = 'first';
+                    } elseif ($number_class == 'first') {
+                        $number_class = 'second';
+                    } elseif ($number_class == 'second') {
+                        $number_class = 'third';
+                    }
 		?>				
-                <li class="post first">
+                <li class="post <?php echo $number_class; ?>">
                     <article>
                         <header>
                             <hgroup>
@@ -21,7 +29,7 @@
                         </header>
                         <aside class="media">
                             <figure class="viewing">
-                                <?php the_post_thumbnail(); ?>
+                                <?php the_post_thumbnail('full'); ?>
                                 <figcaption><?php echo print_feature_caption($post->ID); ?></figcaption>
                             </figure>
                             <nav class="media-nav">
@@ -49,7 +57,7 @@
                                                 if ($video_array[$i] != '') {
                                                     echo '
                                                         <li>
-                                                            <a href="#">' . $i . '</a>
+                                                            <a href="#">' . $i+1 . '</a>
                                                             <figure class="hidden-content">
                                                                 <iframe src="http://player.vimeo.com/video/' . $video_array[$i] . '?portrait=0" width="100%" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
                                                             </figure>
