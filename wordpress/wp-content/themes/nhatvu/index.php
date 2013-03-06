@@ -5,23 +5,18 @@
 		
 		<?php 
             if ( have_posts() ) {
-                $number = 1;
+                $count_posts = wp_count_posts();
+                $published_posts = $count_posts->publish;
+
 				while ( have_posts() ) { 
 					the_post();
-
-                    $count_posts = wp_count_posts();
-                    $published_posts = $count_posts->publish;
-                    $number++;
-
                     $post_number = $number - $published_posts;
-
-
 		?>				
                 <li class="post first">
                     <article>
                         <header>
                             <hgroup>
-                                <h1 class="title"><span class="post-number"><?php echo $post_number; ?></span> <?php the_title(); ?> </h1>
+                                <h1 class="title"><span class="post-number"><?php echo $published_posts; ?></span> <?php the_title(); ?> </h1>
                             </hgroup>
                         </header>
                         <aside class="media">
@@ -36,24 +31,33 @@
                                         <?php print_all_images($post->ID); ?>
                                     </ol>
                                 </div>
+                                <?php 
+                                    $video_1 = get_post_meta($post->ID, 'video_code_1', true);
+                                    $video_2 = get_post_meta($post->ID, 'video_code_2', true);
+                                    $video_3 = get_post_meta($post->ID, 'video_code_3', true);
+                                    $video_4 = get_post_meta($post->ID, 'video_code_4', true);
 
+                                    $video_array = array($video_1, $video_2, $video_3, $video_4);
+                                    
+                                ?>
                                 <div class="media-module videos inactive">
                                     <h1>Videos</h1>
                                     <ol>
-                                        <li>
-                                            <a href="#">1</a>
-                                            <figure class="hidden-content">
-                                                <iframe src="http://player.vimeo.com/video/59651338?portrait=0" width="100%" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-                                                <figcaption>assinvelit quas aut ut doluptatur sunt laut quatur a</figcaption>
-                                            </figure>
-                                        </li>
-                                        <li>
-                                            <a href="#">2</a>
-                                            <figure class="hidden-content">
-                                                <iframe src="http://player.vimeo.com/video/59651338?portrait=0" width="100%" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-                                                <figcaption>assinvelit quas aut ut doluptatur sunt laut quatur a</figcaption>
-                                            </figure>
-                                        </li>
+                                        <?php
+                                            $i = 0;
+                                            while($i < 5) {
+                                                if ($video_array[$i] != '') {
+                                                    echo '
+                                                        <li>
+                                                            <a href="#">' . $i . '</a>
+                                                            <figure class="hidden-content">
+                                                                <iframe src="http://player.vimeo.com/video/' . $video_array[$i] . '?portrait=0" width="100%" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                                                            </figure>
+                                                        </li>';
+                                                }
+                                                $i++;
+                                            }
+                                        ?>
                                     </ol>
                                 </div>
 
@@ -69,7 +73,8 @@
 					    </div>
                     </article>
                 </li>
-		<?php
+        <?php
+                     $published_posts = $published_posts - 1;
                 }
 
             } else {
