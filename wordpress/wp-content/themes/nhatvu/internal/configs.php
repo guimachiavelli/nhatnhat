@@ -20,16 +20,6 @@
 		return '&nbsp;[…]';
 	}
 	add_filter('excerpt_more', 'new_excerpt_more');
-	
-
-	//show posts of post type 'post' and 'nota' on the main page
-	add_action( 'pre_get_posts', 'query_nota' );
-	function query_nota( $query ) {
-		if ( is_home() && $query->is_main_query() ) {
-			$query->set( 'post_type', array( 'post', 'nota') );
-		}
-		return $query;
-	}
 
 	function unregister_taxonomy(){
     	register_taxonomy('post_tag', array());
