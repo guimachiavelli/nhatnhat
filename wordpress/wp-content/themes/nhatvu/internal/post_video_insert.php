@@ -38,6 +38,31 @@
 
 		<label for="video_code_4">Video #4</label>
 		<input name="video_code_4" id="video_code_4" value="<?php echo get_previous_content('video_code_4', $post->ID); ?>">
+
+		<label for="video_code_5">Video #5</label>
+		<input name="video_code_5" id="video_code_5" value="<?php echo get_previous_content('video_code_5', $post->ID); ?>">
+
+		<label for="video_code_6">Video #6</label>
+		<input name="video_code_6" id="video_code_6" value="<?php echo get_previous_content('video_code_6', $post->ID); ?>">
+
+		<label for="video_code_7">Video #7</label>
+		<input name="video_code_7" id="video_code_7" value="<?php echo get_previous_content('video_code_7', $post->ID); ?>">
+
+		<label for="video_code_8">Video #8</label>
+		<input name="video_code_8" id="video_code_8" value="<?php echo get_previous_content('video_code_8', $post->ID); ?>">
+
+		<label for="video_code_9">Video #9</label>
+		<input name="video_code_9" id="video_code_9" value="<?php echo get_previous_content('video_code_9', $post->ID); ?>">
+
+		<label for="video_code_10">Video #10</label>
+		<input name="video_code_10" id="video_code_10" value="<?php echo get_previous_content('video_code_10', $post->ID); ?>">
+
+		<label for="video_code_11">Video #11</label>
+		<input name="video_code_11" id="video_code_11" value="<?php echo get_previous_content('video_code_11', $post->ID); ?>">
+
+		<label for="video_code_12">Video #12</label>
+		<input name="video_code_12" id="video_code_12" value="<?php echo get_previous_content('video_code_12', $post->ID); ?>">
+
 <?php
 
 	}
