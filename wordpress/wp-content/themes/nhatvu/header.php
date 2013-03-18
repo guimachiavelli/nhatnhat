@@ -26,7 +26,7 @@
 			<a href="<?php echo SITE_URL; ?>">
 				<hgroup>
 					<h1 class="name"><b class="nhat">Nhat</b> <b class="dash">–</b> <b class="vu">Vu</b> <b class="dang">Dang</b></h1>
-					<h2 class="name pronunciation"><b class="nhat">(Njatt)</b> <b class="vu">(Foo)</b> <b class="dang">(Dang)</b></h2>
+					<h2 class="name pronunciation"><b class="nhat">(Njutt)</b> <b class="vu">(Foo)</b> <b class="dang">(Dang)</b></h2>
 				</hgroup>
 			</a>
 		</header>
