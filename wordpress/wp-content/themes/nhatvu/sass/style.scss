@@ -264,25 +264,12 @@ h1, h2 {
 		}
 
 		&.videos {
-			h1 {
-				top: rhythm(2);
-			}
-		}
-
-
-		&.inactive {
-			ol {
-							}
+			h1 { top: rhythm(2); }
 		}
 
 		&.active {
-			ol {
-				display: block;
-			}
-			h1 {
-				color: $main-color;
-			}
-
+			ol { display: block; }
+			h1 { color: $main-color; }
 		}
 
 
@@ -290,7 +277,7 @@ h1, h2 {
 	}
 
 
-	.title:hover {
+	.title:hover, li.active a {
 		color: $main-color;
 	}		
 	hgroup {
@@ -300,7 +287,7 @@ h1, h2 {
 
 
 	&.third {
-		a:hover, .title:hover {
+		a:hover, .title:hover, .active {
 			color: $third-color;
 		}		
 		hgroup {
@@ -319,7 +306,7 @@ h1, h2 {
 	}
 
 	&.second {
-		a:hover, .title:hover {
+		a:hover, .title:hover, .active {
 			color: $second-color;
 		}
 		hgroup {
