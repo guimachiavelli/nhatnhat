@@ -286,7 +286,7 @@ h1, h2 {
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\0000352}}
 #top-bar .nav-link.active a {
-  color: #ed217c;
+  color: #ff6000;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\0000357}}
@@ -533,19 +533,19 @@ h1, h2 {
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003303}}
 .post.third a:hover, .post.third .title:hover {
-  color: #ed217c;
+  color: #ff6000;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003306}}
 .post.third hgroup {
-  border-color: #ed217c;
+  border-color: #ff6000;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003310}}
 .post.third .media-module.active h1 {
-  color: #ed217c;
+  color: #ff6000;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003314}}
 .post.third .media-module h1:hover {
-  color: #ed217c;
+  color: #ff6000;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003322}}
 .post.second a:hover, .post.second .title:hover {
