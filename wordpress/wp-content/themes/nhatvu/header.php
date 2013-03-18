@@ -34,9 +34,9 @@
 		<nav id="top-bar" role="navigation">
 			<h1 class="outline">Menu</h1>
 			<ul>
-			<li class="nav-link work active"><a href="<?php echo SITE_URL; ?>">Work</a></li>
-				<li class="nav-link about"><a href="<?php echo print_page_permalink('about'); ?>">About</a></li>
-				<li class="nav-link follow"><a href="<?php echo print_page_permalink('follow'); ?>">Follow</a></li>
-				<li class="nav-link contact"><a href="<?php echo print_page_permalink('contact'); ?>">Contact</a></li>
+				<li class="nav-link work <?php if ( is_home() ) { ?> active<?php } ?>"><a href="<?php echo SITE_URL; ?>">Work</a></li>
+				<li class="nav-link about <?php if ( is_page('about') ) { ?> active<?php } ?>"><a href="<?php echo print_page_permalink('about'); ?>">About</a></li>
+				<li class="nav-link follow <?php if ( is_page('follow') ) { ?> active<?php } ?>"><a href="<?php echo print_page_permalink('follow'); ?>">Follow</a></li>
+				<li class="nav-link contact <?php if ( is_page('contact') ) { ?> active<?php } ?>"><a href="<?php echo print_page_permalink('contact'); ?>">Contact</a></li>
 			</ul>
 		</nav>
