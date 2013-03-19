@@ -44,14 +44,14 @@
                                     $video_2 = get_post_meta($post->ID, 'video_code_2', true);
                                     $video_3 = get_post_meta($post->ID, 'video_code_3', true);
 									$video_4 = get_post_meta($post->ID, 'video_code_4', true);
-                                    $video_5 = get_post_meta($post->ID, 'video_code_1', true);
-                                    $video_6 = get_post_meta($post->ID, 'video_code_2', true);
-                                    $video_7 = get_post_meta($post->ID, 'video_code_3', true);
-									$video_8 = get_post_meta($post->ID, 'video_code_4', true);
-                                    $video_9 = get_post_meta($post->ID, 'video_code_1', true);
-                                    $video_10 = get_post_meta($post->ID, 'video_code_2', true);
-                                    $video_11 = get_post_meta($post->ID, 'video_code_3', true);
-                                    $video_12 = get_post_meta($post->ID, 'video_code_4', true);
+                                    $video_5 = get_post_meta($post->ID, 'video_code_5', true);
+                                    $video_6 = get_post_meta($post->ID, 'video_code_6', true);
+                                    $video_7 = get_post_meta($post->ID, 'video_code_7', true);
+									$video_8 = get_post_meta($post->ID, 'video_code_8', true);
+                                    $video_9 = get_post_meta($post->ID, 'video_code_9', true);
+                                    $video_10 = get_post_meta($post->ID, 'video_code_10', true);
+                                    $video_11 = get_post_meta($post->ID, 'video_code_11', true);
+                                    $video_12 = get_post_meta($post->ID, 'video_code_12', true);
 
                                     $video_array = array($video_1, $video_2, $video_3, $video_4,$video_5, $video_6, $video_7, $video_8,$video_9, $video_10, $video_11, $video_12);
                                 ?>
@@ -59,12 +59,14 @@
                                     <h1>Videos</h1>
                                     <ol>
                                         <?php
-                                            $i = 0;
+											$i = 0;
+											$y = 0;
                                             while($i < 13) {
-                                                if ($video_array[$i] != '') {
+												if ($video_array[$i] != '') {
+													$y++;
                                                     echo '
-														<li class="video_'. $i .'">
-                                                            <a href="#">' . $i+1 . '</a>
+														<li class="video_'. $y .'">
+                                                            <a href="#">' . $y . '</a>
                                                             <figure class="hidden-content">
                                                                 <iframe src="http://player.vimeo.com/video/' . $video_array[$i] . '?portrait=0" width="100%" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
                                                             </figure>
