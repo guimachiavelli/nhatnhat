@@ -47,10 +47,19 @@ $(document).ready(function () {
 		li_target = $(this).siblings('.media-nav').children('.images').children('ol').children(new_image);
 		target = li_target.children('.hidden-content');
 
+
 		if (target.length > 0) {
+			li_target.addClass('active').siblings('li').removeClass('active');
 			test = target[0].innerHTML;
 			$(this).html(test);
 			current_image = new_image;
+		} else {
+			current_image = '.image_1';
+			li_target = $(this).siblings('.media-nav').children('.images').children('ol').children(current_image);
+			target = li_target.children('.hidden-content');
+			li_target.addClass('active').siblings('li').removeClass('active');
+			test = target[0].innerHTML;
+			$(this).html(test);		
 		}
 	});
 	
