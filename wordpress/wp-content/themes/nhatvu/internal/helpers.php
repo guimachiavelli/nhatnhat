@@ -81,7 +81,7 @@
 		foreach($attachments as $key=>$image) {
 			$i++;
 //			echo $image->post_excerpt;
-			echo '<li>
+			echo '<li class="image_' . $i . '">
 					<a href="#">' . $i . '</a>
 					<figure class="hidden-content">
 						<img src="'. $image->guid .'" alt="' . $image->post_title . '">
