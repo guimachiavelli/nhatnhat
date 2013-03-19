@@ -184,8 +184,8 @@ h1, h2 {
 		line-height: 0;
 
 		figcaption {
-			position: relative;
-			z-index: 5;
+			position: absolute;
+			z-index: 11115;
 			float: right;
 			display: none;
 			margin-top: rhythm(5)*-1;
@@ -202,10 +202,8 @@ h1, h2 {
 			line-height: 0;
 		}
 
-		&:hover {
-			figcaption {
-				display: block;
-			}
+		&:hover > figcaption {
+			display: block;
 		}
 	}
 
@@ -271,8 +269,6 @@ h1, h2 {
 			ol { display: block; }
 			h1 { color: $main-color; }
 		}
-
-
 
 	}
 
