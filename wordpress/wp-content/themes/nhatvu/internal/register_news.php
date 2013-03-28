@@ -4,7 +4,7 @@
 	add_action("save_post", "save_news");
 
 	//Create the post type
-	function create_link_section() {
+	function create_news_section() {
 		register_post_type( "news",
 			array(
 				"labels" => array(
@@ -13,7 +13,7 @@
 				),
 				"public" => true,
 				"has_archive" => true,
-				"menu_position" => 10,
+				"menu_position" => 6,
 				"hierarchical" => true, 
 				"supports" => array("title", "editor")
 			)

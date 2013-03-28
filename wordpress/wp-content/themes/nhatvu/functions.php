@@ -10,8 +10,8 @@
 	//add video inserting support
 	get_template_part("internal/post_video_insert");
 	
-	//add section: shelf
-	//get_template_part("internal/register_shelf");
+	//add section: news
+	get_template_part("internal/register_news");
 
 
 
