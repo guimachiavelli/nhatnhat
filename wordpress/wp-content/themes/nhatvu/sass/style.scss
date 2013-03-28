@@ -21,6 +21,7 @@ body {
 	background: $background-color;
 	color: $text-color;
 	padding-top: rhythm(3);
+	padding-bottom: rhythm(10);
 }
 
 h1, h2 {
@@ -181,8 +182,10 @@ h1, h2 {
 	}
 
 	.viewing {
-		line-height: 0;
+//		line-height: 0;
+		height: 670px;
 		cursor: pointer;
+		vertical-align: top;
 
 		figcaption {
 			position: absolute;
@@ -196,12 +199,12 @@ h1, h2 {
 			width: 90%;
 			height: rhythm(3);
 			line-height: rhythm();
+			vertical-align: baseline;
 		}
 
 		img {
 			width: 100%;
 			height: auto;
-			line-height: 0;
 		}
 
 		&:hover > figcaption {
@@ -327,6 +330,11 @@ h1, h2 {
 		max-height: 900px;
 		padding-bottom: rhythm();
 		margin-bottom: -15px;
+		.viewing {
+			line-height: 670px;
+			vertical-align: middle;
+		}
+
 	}
 }
 

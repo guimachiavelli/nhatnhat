@@ -14,8 +14,17 @@ current_image = '';
 $(document).ready(function () {
 	
 	$('.media-nav h1').click(function() {
+		var show_pic, test;
+
 		$(this).parents('.media-module').addClass('active');
 		$(this).parents('.media-module').siblings('.media-module').removeClass('active');
+
+		show_pic = $(this).siblings('ol').children('li:first-child').children('.hidden-content');
+		test = show_pic[0].innerHTML;
+		show_pic.parents('.media').children('.viewing').html(test);
+
+
+
 		return false;
 	});
 
@@ -65,6 +74,14 @@ $(document).ready(function () {
 	
 	$('.post .title').click(function() {
 		$(this).parents('.post').toggleClass('open');
+		return false;
+	});
+
+	$('.post .media').click(function() {
+		if ($(this).parents('.post').not('.open').length > 0) {
+			console.log(1);
+			$(this).parents('.post').toggleClass('open');
+		}
 		return false;
 	});
 
