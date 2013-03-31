@@ -15,8 +15,6 @@ html {
 
 body {
 	@include adjust-leading-to(2);
-//	@include susy-grid-background;
-	//@include debug-vertical-alignment;
 	font-family: $text-font;
 	background: $background-color;
 	color: $text-color;
@@ -125,7 +123,7 @@ h1, h2 {
 	overflow: hidden;
 	margin-bottom: 0;
 	max-height: 140px;
-	@include transition-property(max-height);
+	@include transition-property(max-height, vertical-align);
 	@include transition-duration(2s);
 
 	
@@ -182,17 +180,19 @@ h1, h2 {
 	}
 
 	.viewing {
-//		line-height: 0;
-		height: 670px;
+		line-height: 1px;
+		height: 700px;
+		@include transition-property(line-height);
+		@include transition-duration(2s);
 		cursor: pointer;
-		vertical-align: top;
+		vertical-align: middle;
+		overflow: hidden;
 
 		figcaption {
 			position: absolute;
+			bottom: rhythm(5);
 			z-index: 11115;
-			float: right;
 			display: none;
-			margin-top: rhythm(5)*-1;
 			background: #fff;
 			text-align: center;
 			padding: rhythm() 5%;
@@ -211,6 +211,23 @@ h1, h2 {
 			display: block;
 		}
 	}
+
+	&.open {
+		max-height: 900px;
+		padding-bottom: rhythm();
+		margin-bottom: -15px;
+
+		.viewing {
+			//line-height: 100%;
+			line-height: 700px;
+
+			img {
+				vertical-align: middle;
+			}
+		}
+
+	}
+
 
 	.media-nav {
 		background: #fff;
@@ -326,16 +343,6 @@ h1, h2 {
 
 
 
-	&.open {
-		max-height: 900px;
-		padding-bottom: rhythm();
-		margin-bottom: -15px;
-		.viewing {
-			line-height: 670px;
-			vertical-align: middle;
-		}
-
-	}
 }
 
 
@@ -413,13 +420,17 @@ h1, h2 {
 	text-rendering: optimizeLegibility;
 }
 
-.home {
-	
-
-	
-
+.page, .archive {
+	.content {
+		h1, h2 {
+			@include adjust-font-size-to(18px, 2);
+			width: 50%;
+			overflow: hidden;
+			text-rendering: optimizeLegibility;
+		}
+	}
 }
 
 @import 'partials/js';
 @import 'partials/ie8';
-//@import 'partials/small-screens';
+@import 'partials/small-screens';
