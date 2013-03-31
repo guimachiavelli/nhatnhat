@@ -1,9 +1,3 @@
-nhatnhat = {
-		
-	
-
-};
-
 String.prototype.setCharAt = function(index,chr) {
 	if(index > this.length-1) return str;
 	return this.substr(0,index) + chr + this.substr(index+1);
@@ -22,8 +16,6 @@ $(document).ready(function () {
 		show_pic = $(this).siblings('ol').children('li:first-child').children('.hidden-content');
 		test = show_pic[0].innerHTML;
 		show_pic.parents('.media').children('.viewing').html(test);
-
-
 
 		return false;
 	});
@@ -79,7 +71,6 @@ $(document).ready(function () {
 
 	$('.post .media').click(function() {
 		if ($(this).parents('.post').not('.open').length > 0) {
-			console.log(1);
 			$(this).parents('.post').toggleClass('open');
 		}
 		return false;
