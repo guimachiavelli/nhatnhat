@@ -13,6 +13,14 @@
 				update_post_meta($post->ID, "video_code_2", $_POST["video_code_2"]);
 				update_post_meta($post->ID, "video_code_3", $_POST["video_code_3"]);
 				update_post_meta($post->ID, "video_code_4", $_POST["video_code_4"]);
+				update_post_meta($post->ID, "video_code_5", $_POST["video_code_5"]);
+				update_post_meta($post->ID, "video_code_6", $_POST["video_code_6"]);
+				update_post_meta($post->ID, "video_code_7", $_POST["video_code_7"]);
+				update_post_meta($post->ID, "video_code_8", $_POST["video_code_8"]);
+				update_post_meta($post->ID, "video_code_9", $_POST["video_code_9"]);
+				update_post_meta($post->ID, "video_code_10", $_POST["video_code_10"]);
+				update_post_meta($post->ID, "video_code_11", $_POST["video_code_11"]);
+				update_post_meta($post->ID, "video_code_12", $_POST["video_code_12"]);
 			}
 		}
 	}
