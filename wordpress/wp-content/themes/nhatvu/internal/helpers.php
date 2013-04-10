@@ -14,6 +14,9 @@
 			$the_classes .= $raw_classes[$i] . ' ';
 			$i++;
 		}
+		if (is_page('about')) {
+			$the_classes .= 'about ';
+		}
 		return $the_classes;
 	}
 

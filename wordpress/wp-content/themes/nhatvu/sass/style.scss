@@ -431,6 +431,14 @@ h1, h2 {
 	}
 }
 
+.about {
+	.content {
+		p {
+			margin-bottom: rhythm(.5);
+		}
+	}
+}
+
 @import 'partials/js';
 @import 'partials/ie8';
 @import 'partials/small-screens';
