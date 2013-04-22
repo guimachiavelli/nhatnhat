@@ -72,12 +72,13 @@
 	
 		$attachments = get_children(
 			array(
-				'post_parent' => $the_post_id,
-				'post_status' => 'inherit',
-				'post_type' => 'attachment',
-				'post_mime_type' => 'image',
-				'order' => 'ASC',
-				'orderby' => 'menu_order ID'
+				'post_parent' 		=> $the_post_id,
+				'post_status' 		=> 'inherit',
+				'post_type' 		=> 'attachment',
+				'post_mime_type' 	=> 'image',
+				'order'				=> 'ASC',
+				'orderby' 	  		=> 'menu_order ID',
+				'exclude'     		=> get_post_thumbnail_id($the_post_id)
 			)
 		);
 
