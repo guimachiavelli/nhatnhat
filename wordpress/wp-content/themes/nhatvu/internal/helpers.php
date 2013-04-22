@@ -37,7 +37,7 @@
 	}
 	
 
-	//Helper function for creating new post types
+	// Helper function for creating new post types
 	function get_previous_content($content, $id) {
         $custom = get_post_custom($id);
 		
@@ -111,5 +111,56 @@
 //		print_r($thumb_image[0]);
 	}
 
+
+	function print_videos($the_post_id) {
+
+		$i = 0;
+		$counter = 1;
+		$video_array = array();
+
+		while($i < 13) {
+			$video_code = 'video_code_' . strval($i + 1);
+//			$video_array[] = get_post_meta($the_post_id, $video_code, true);
+
+			$the_video = get_post_meta($the_post_id, $video_code, true);
+			
+			if ($the_video != '') {
+				echo  '<li class="video_'. $counter .'">
+									<a href="#">' . $counter . '</a>
+									<figure class="hidden-content">
+										<iframe src="http://player.vimeo.com/video/' . $the_video . '?portrait=0" width="100%" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+									</figure>
+								 </li>';
+				$counter++;
+			}
+
+			$i++;
+
+		}
+		
+		return $video_array;
+
+/*
+
+		$video_array = array($video_1, $video_2, $video_3, $video_4,$video_5, $video_6, $video_7, $video_8,$video_9, $video_10, $video_11, $video_12);
+
+		$i = 0;
+		$y = 0;
+		while($i < 13) {
+			if ($video_array[$i] != '') {
+				$y++;
+				echo '
+					<li class="video_'. $y .'">
+						<a href="#">' . $y . '</a>
+						<figure class="hidden-content">
+							<iframe src="http://player.vimeo.com/video/' . $video_array[$i] . '?portrait=0" width="100%" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+						</figure>
+					</li>';
+			}
+			$i++;
+		}
+ */
+	}
+ 
 
 ?>
