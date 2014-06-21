@@ -1,0 +1,39 @@
+/* Small Desktops and laptops ----------- */
+@media (max-width : 650px) {
+	.post {
+		max-height: 100%;
+		position: relative;
+		
+		.post-number {
+			float: none;
+		}
+
+		header {
+			height: auto;
+		}
+		
+		.media {
+			position: absolute;
+			right: 0;
+			top: 0;
+			margin-top: 0;
+		}
+
+		.viewing {
+			height: auto;
+			figcaption {
+				position: relative;
+				bottom: 0;
+				display: block;
+			}
+		}
+
+		&.open {
+			max-height: 100%;
+			.viewing {
+				line-height: 1;
+			}
+		}
+	}
+
+}

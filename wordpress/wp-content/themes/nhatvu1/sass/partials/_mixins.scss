@@ -1,0 +1,27 @@
+@mixin smooth {
+	-webkit-font-smoothing: antialiased;
+}
+
+@mixin overflow-control {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+@mixin input-placeholder($color) {
+  &.placeholder {
+ 	   color: $color;
+	}
+  &:-moz-placeholder {
+    	color: $color;
+	}
+  &::-webkit-input-placeholder {
+	    color: $color;
+	} 
+}
+
+@mixin make-square {
+	@include box-shadow(2px 2px 15px 2px rgba(#000, 0.1));
+	background-color: #fff;
+	padding: rhythm() 0;
+}
