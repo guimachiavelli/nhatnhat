@@ -2,20 +2,72 @@
 
 	#intro {
 		height: auto;
-		margin: 0 auto rhythm(2) auto;
+		margin: 0 auto rhythm(3) auto;
 		width: 90%;
 		text-align: center;
 		
-		.nhat, .vu, .dang, .dash {
-			position: static !important;
-			float: none;
-			margin: 0 !important;
-			@include adjust-font-size-to(40px, 1, 65px);
+		.written {
+			.nhat, .vu, .dang, .dash {
+				position: static !important;
+				float: none;
+				margin: 0 !important;
+				@include adjust-font-size-to(40px, 1, 65px);
+			}
 		}
 
-		.name.pronunciation {
-			display: none;
+
+		.pronunciation {
+			top: 0;
+
+			.nhat, .vu, .dang {
+				@include adjust-font-size-to(15px, 1, 18px);
+			}
+
+			.nhat {
+				margin-left: 20px;
+			}
+
+			.vu {
+				margin-left: 0;
+			}
+
+			.dang {
+				margin-right: 20px;
+			}
 		}
+
+	}
+
+	.post {
+		.title {
+			width: 100%;
+		}
+
+		.media {
+			position: static !important;
+		}
+
+
+		.media-module {
+			margin-top: rhythm(1.5);
+			
+			&.videos {
+				margin-top: 5px;;
+			}
+
+			h1 {
+				position: static;
+				top: auto;
+				bottom: rhythm(1);
+			}
+
+			ol {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		}
+
 	}
 
 
