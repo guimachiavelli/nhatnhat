@@ -1,5 +1,32 @@
+@media (max-width: 576px) {
+
+	#intro {
+		height: auto;
+		margin: 0 auto rhythm(2) auto;
+		width: 90%;
+		text-align: center;
+		
+		.nhat, .vu, .dang, .dash {
+			position: static !important;
+			float: none;
+			margin: 0 !important;
+			@include adjust-font-size-to(40px, 1, 65px);
+		}
+
+		.name.pronunciation {
+			display: none;
+		}
+	}
+
+
+}
+
+
+
 /* Small Desktops and laptops ----------- */
-@media (max-width : 650px) {
+@media (max-width: 650px) {
+	
+
 	.post {
 		max-height: 100%;
 		position: relative;
