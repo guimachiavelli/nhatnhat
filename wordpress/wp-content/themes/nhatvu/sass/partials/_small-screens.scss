@@ -70,6 +70,39 @@
 
 	}
 
+	.page, .archive {
+
+		.main-module header {
+			margin-bottom: rhythm(2);		
+		}
+
+		.title {
+			width: 95%;
+		}
+
+		.content {
+			width: 100%;
+			margin: rhythm() 0;
+			@include box-sizing(border-box);
+		}
+
+		#nhat-photo {
+			float: none;
+			margin: 0;
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+
+	}
+
+	.info-list {
+		.content {
+			width: 100% !important;
+		}
+	}
+
 
 }
 
