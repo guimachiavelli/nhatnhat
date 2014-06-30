@@ -1,5 +1,5 @@
 <?php
-	
+
 	// create constants for often used info
 	define("TEMPLATE_URL", get_template_directory_uri());
 	define("SITE_URL", get_bloginfo("url"));
@@ -24,23 +24,23 @@
 	// print author's full name
 	function print_author($the_id) {
 		$author_name = the_author_meta( 'first_name', $the_id ) . ' ' . the_author_meta( 'last_name', $the_id ) . the_author_meta( 'last_name', $the_id );
-		
+
 		return $author_name;
 	}
 
 	// print categories for use as .classes
 	function print_categories($the_id) {
-		foreach((get_the_category($the_id)) as $category) { 
+		foreach((get_the_category($the_id)) as $category) {
 			$post_categories .= $category->category_nicename;
-		} 
+		}
 		return $post_categories;
 	}
-	
+
 
 	// Helper function for creating new post types
 	function get_previous_content($content, $id) {
         $custom = get_post_custom($id);
-		
+
 		if (is_object($custom) || is_array($custom) || isset($custom)) {
 			if (isset($custom[$content][0])) {
 				$previous = $custom[$content][0];
@@ -54,7 +54,7 @@
 	}
 
 	function print_page_permalink($the_page_name) {
-    	$permalink = get_page_by_path($the_page_name); 
+    	$permalink = get_page_by_path($the_page_name);
 		$permalink = get_permalink($permalink->ID);
 		return $permalink;
 	}
@@ -69,7 +69,7 @@
 
 
 	function print_all_images($the_post_id) {
-	
+
 		$attachments = get_children(
 			array(
 				'post_parent' 		=> $the_post_id,
@@ -96,7 +96,7 @@
 		}
 
 		return $attachments;
-	
+
 	}
 
 	function print_feature_caption($the_id) {
@@ -124,7 +124,7 @@
 //			$video_array[] = get_post_meta($the_post_id, $video_code, true);
 
 			$the_video = get_post_meta($the_post_id, $video_code, true);
-			
+
 			if ($the_video != '') {
 				echo  '<li class="video_'. $counter .'">
 									<a href="#">' . $counter . '</a>
@@ -138,7 +138,7 @@
 			$i++;
 
 		}
-		
+
 		return $video_array;
 
 /*
@@ -162,6 +162,6 @@
 		}
  */
 	}
- 
+
 
 ?>

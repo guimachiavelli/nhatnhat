@@ -2,13 +2,13 @@
 
 		<ol id="home-work" role="main">
 
-		
-		<?php 
+
+		<?php
             if ( have_posts() ) {
                 $count_posts = wp_count_posts();
                 $published_posts = $count_posts->publish;
 
-				while ( have_posts() ) { 
+				while ( have_posts() ) {
                     the_post();
                     $post_number = $number - $published_posts;
 
@@ -19,7 +19,7 @@
                     } elseif ($number_class == 'second') {
                         $number_class = 'third';
                     }
-		?>				
+		?>
                 <li class="post <?php echo $number_class; ?>">
                     <article>
                         <header>
@@ -29,7 +29,7 @@
                         </header>
                         <aside class="media">
                             <figure class="viewing">
-                                <?php the_post_thumbnail('full'); ?>
+                                <?php the_post_thumbnail('large'); ?>
                                 <figcaption><?php echo print_feature_caption($post->ID); ?></figcaption>
                             </figure>
                             <nav class="media-nav">
@@ -46,9 +46,9 @@
                                         <?php print_videos($post->ID); ?>
                                     </ol>
                                 </div>
-                                
+
                             </nav>
-                            
+
                         </aside>
 
                         <div class="content">

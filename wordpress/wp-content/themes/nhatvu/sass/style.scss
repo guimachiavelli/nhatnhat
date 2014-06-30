@@ -181,7 +181,7 @@ h1, h2 {
 
 	.viewing {
 		line-height: 1px;
-		height: 700px;
+		height: 480px;
 		@include transition-property(line-height);
 		@include transition-duration(2s);
 		cursor: pointer;
@@ -219,7 +219,7 @@ h1, h2 {
 
 		.viewing {
 			//line-height: 100%;
-			line-height: 700px;
+			line-height: 480px;
 
 			img {
 				vertical-align: middle;

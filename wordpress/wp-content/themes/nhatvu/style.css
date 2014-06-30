@@ -434,7 +434,7 @@ h1, h2 {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003182}}
 .post .viewing {
   line-height: 1px;
-  height: 700px;
+  height: 480px;
   -moz-transition-property: line-height;
   -o-transition-property: line-height;
   -webkit-transition-property: line-height;
@@ -478,7 +478,7 @@ h1, h2 {
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003220}}
 .post.open .viewing {
-  line-height: 700px;
+  line-height: 480px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/gui\/projects\/nhat-vu\/wordpress\/wp-content\/themes\/nhatvu\/sass\/style\.scss}line{font-family:\00003224}}
 .post.open .viewing img {
